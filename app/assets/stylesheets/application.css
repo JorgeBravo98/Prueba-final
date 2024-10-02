@@ -1,15 +1,60 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* Aplicar la nueva fuente a todo el cuerpo */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f4f0; /* Fondo claro */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f4f0;
+  }
+  
+  .title {
+    font-size: 6em;
+    color: #063971;
+    margin-bottom: 70px;
+    font-weight: 600; /* Fuente más fuerte */
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .btn {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Mantiene el color del botón */
+    border: none;
+    border-radius: 30px; /* Bordes redondeados para un look más moderno */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #063971;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #052b5f;
+  }
+  
+  .btn-secondary {
+    background-color: transparent;
+    color: #063971;
+    border: 2px solid #063971;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #063971;
+    color: white;
+  }
+  

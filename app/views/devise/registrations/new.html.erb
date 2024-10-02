@@ -1,41 +1,47 @@
-<h2>Crear cuenta de Alumno</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :numero_alumno %><br />
-    <%= f.text_field :numero_alumno, autofocus: true %>
+<div class="form-container">
+  <!-- Lado izquierdo: Botón de iniciar sesión -->
+  <div class="col-left">
+    <%= link_to "Iniciar sesión", new_session_path(resource_name), class: "btn-log-in" %>
   </div>
 
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
-  </div>
+  <!-- Lado derecho: Formulario de creación de cuenta -->
+  <div class="col-right">
+    <h2 class="titulo">Crear cuenta de Alumno</h2>
 
-  <div class="field">
-    <%= f.label :apellido %><br />
-    <%= f.text_field :apellido %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :nombre %><br />
+        <%= f.text_field :nombre, class: "input" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
+      <div class="field">
+        <%= f.label :apellido %><br />
+        <%= f.text_field :apellido, class: "input" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <div class="field">
+        <%= f.label :numero_alumno %><br />
+        <%= f.text_field :numero_alumno, class: "input" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class: "input" %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Registrar" %>
-  </div>
-<% end %>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, class: "input" %>
+      </div>
 
-<%= render "devise/shared/links" %>
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, class: "input" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Registrar", class: "btn-registrar" %>
+      </div>
+    <% end %>
+  </div>
+</div>
