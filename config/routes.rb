@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
-  devise_for :alumnos
-  get 'users/index'
+  # Ruta para el menú principal de alumnos
+  get 'menu_principal_alumnos', to: 'alumnos#menu_principal'
+
+  # Devise para alumnos con un controlador personalizado para registrations
+  devise_for :alumnos, controllers: { registrations: 'registrations' }
+
+  # Devise para usuarios (sin controlador personalizado)
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Letter Opener para entorno de desarrollo (envía correos a través de la web)
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-  
 
-  # Defines the root path route ("/")
+  # Ruta raíz
   root "home#index"
+
+  # Recurso para manejar acciones de usuarios
   resources :users, only: [:index]
 end

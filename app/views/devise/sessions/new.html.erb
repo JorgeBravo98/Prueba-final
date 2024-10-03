@@ -1,17 +1,23 @@
 <div class="form-container">
-  <!-- Lado izquierdo: Botón de crear cuenta (redirigir a registro) -->
   <div class="col-left">
-    <%= link_to "Crear cuenta", new_registration_path(resource_name), class: "btn-crear-cuenta" %>
+    <%= link_to "CREAR CUENTA", new_alumno_registration_path, class: "btn-log-in" %>
+    <%= link_to "VOLVER A INICIO", root_path, class: "btn-log-in" %>
   </div>
 
-  <!-- Lado derecho: Formulario de inicio de sesión -->
   <div class="col-right">
-    <h2 class="titulo">Iniciar sesión</h2>
+    <h2 class="titulo">INICIAR SESIÓN</h2>
+    <% if flash[:alert] %>
+      <div class="error-messages">
+        <ul>
+          <li><%= flash[:alert] %></li>
+        </ul>
+      </div>
+    <% end %>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+        <%= f.email_field :email, autofocus: true, class: "input" %>
       </div>
 
       <div class="field">
@@ -19,15 +25,13 @@
         <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
       </div>
 
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end %>
+      <div class="field">
+        <%= f.check_box :remember_me %> 
+        <%= f.label :remember_me %>
+      </div>
 
       <div class="actions">
-        <%= f.submit "Iniciar sesión", class: "btn-log-in" %>
+        <%= f.submit "INICIAR", class: "btn-registrar" %>
       </div>
     <% end %>
 
