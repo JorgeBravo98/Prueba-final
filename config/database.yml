@@ -7,9 +7,6 @@ development:
   <<: *default
   database: db/development.sqlite3
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
   database: db/test.sqlite3
@@ -18,8 +15,8 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: base_sanvac  # Nombre de tu base de datos en Render
-  username: base_sanvac_user  # Usuario de tu base de datos en Render
-  password: X5Pp3Od28UdDnvpD2VdTWvCXsZ5ho5nb  # Contraseña de tu base de datos en Render
-  host: dpg-crvcks56l47c73fc8r00-a  # Hostname de tu base de datos en Render
-  port: 5432  # Puerto de PostgreSQL en Render
+  database: base_sanvac  # Nombre de la base de datos en Render
+  username: base_sanvac_user  # Usuario de la base de datos en Render
+  password: <%= ENV['DATABASE_PASSWORD'] %>  # Variable de entorno con la contraseña
+  host: <%= ENV['DATABASE_HOST'] %>  # Variable de entorno con el host
+  port: 5432
