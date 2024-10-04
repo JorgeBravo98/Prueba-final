@@ -7,7 +7,12 @@
 
   <!-- Lado derecho: Formulario de creación de cuenta -->
   <div class="col-right">
-    <h2 class="titulo">CREAR CUENTA DE ALUMNO</h2>
+    <% if resource.is_a?(Alumno) %>
+      <h2 class="titulo">CREAR CUENTA ALUMNO</h2>
+    <% elsif resource.is_a?(Profesor) %>
+      <h2 class="titulo">CREAR CUENTA PROFESOR</h2>
+    <% end %>
+
     <% if resource.errors.any? %>
       <div class="error-messages">
         <h4><%= pluralize(resource.errors.count, "error") %> impidió crear la cuenta:</h4>
@@ -20,21 +25,44 @@
     <% end %>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :nombre %><br />
-        <%= f.text_field :nombre, class: "input" %>
-      </div>
 
-      <div class="field">
-        <%= f.label :apellido %><br />
-        <%= f.text_field :apellido, class: "input" %>
-      </div>
+      <!-- Campos específicos de Alumno -->
+      <% if resource.is_a?(Alumno) %>
+        <div class="field">
+          <%= f.label :nombre %><br />
+          <%= f.text_field :nombre, class: "input" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :numero_alumno %><br />
-        <%= f.text_field :numero_alumno, class: "input" %>
-      </div>
+        <div class="field">
+          <%= f.label :apellido %><br />
+          <%= f.text_field :apellido, class: "input" %>
+        </div>
 
+        <div class="field">
+          <%= f.label :numero_alumno %><br />
+          <%= f.text_field :numero_alumno, class: "input" %>
+        </div>
+      <% end %>
+
+      <!-- Campos específicos de Profesor -->
+      <% if resource.is_a?(Profesor) %>
+        <div class="field">
+          <%= f.label :nombre %><br />
+          <%= f.text_field :nombre, class: "input" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :apellido %><br />
+          <%= f.text_field :apellido, class: "input" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :nombre_usuario %><br />
+          <%= f.text_field :nombre_usuario, class: "input" %>
+        </div>
+      <% end %>
+
+      <!-- Campos comunes (email, password, etc.) -->
       <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, class: "input" %>

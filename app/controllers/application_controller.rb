@@ -7,8 +7,10 @@ class ApplicationController < ActionController::Base
     # Si el usuario que inicia sesión es un Alumno, redirige a la página principal de alumnos
     if resource.is_a?(Alumno)
       menu_principal_alumnos_path # Redirigir a la ruta que lleva al menú principal de los alumnos
+    elsif resource.is_a?(Profesor)
+      profesores_menu_principal_path # Cambia a la ruta que apunta a tu página principal de profesores
     else
-      super # Si no es Alumno, aplica el comportamiento por defecto de Devise
+      super # Si no es Alumno o Profesor, aplica el comportamiento por defecto de Devise
     end
   end
 
