@@ -10,12 +10,24 @@
 
   <!-- Fuente de Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 </head>
 
-
 <body>
+  <!-- Aquí agregamos los mensajes flash -->
+  <% if notice %>
+    <div class="alert alert-notice">
+      <%= notice %>
+    </div>
+  <% end %>
 
-    <%= yield %>
-  </body>
+  <% if alert %>
+    <div class="alert alert-alert">
+      <%= alert %>
+    </div>
+  <% end %>
+
+  <!-- El contenido principal -->
+  <%= yield %>
+</body>
 </html>
+
