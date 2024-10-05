@@ -2,4 +2,8 @@
 
 <p>Find me in app/views/profesores/menu_principal.html.erb</p>
 
-<%= link_to 'Cerrar sesión', destroy_profesor_session_path, method: :delete, data: { confirm: '¿Estás seguro de que quieres cerrar sesión?' } %>
+<!-- Botón para agregar un nuevo curso -->
+<%= link_to 'Agregar Curso', new_curso_path, class: 'btn btn-primary' %>
+
+<!-- Botón para cerrar sesión -->
+<%= link_to 'Cerrar sesión', destroy_profesor_session_path, method: :delete, data: { confirm: '¿Estás seguro de que quieres cerrar sesión?' }, class: 'btn btn-danger' %>

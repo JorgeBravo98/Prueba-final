@@ -1,0 +1,26 @@
+<h1>Información del Profesor</h1>
+
+<p><strong>Nombre:</strong> <%= @profesor.nombre %></p>
+<p><strong>Email:</strong> <%= @profesor.email %></p>
+<p><strong>ID:</strong> <%= @profesor.id %></p>
+
+<!-- Formulario para crear un nuevo curso -->
+<h2>Crear Nuevo Curso</h2>
+
+<%= form_with(model: @curso, url: cursos_path, local: true) do |form| %>
+  <div>
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div>
+    <%= form.label :sigla %>
+    <%= form.text_field :sigla %>
+  </div>
+
+  <div>
+    <%= form.submit 'Crear Curso', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= link_to 'Volver a crear curso', new_curso_path, class: 'btn btn-secondary' %>

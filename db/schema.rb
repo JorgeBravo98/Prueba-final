@@ -52,8 +52,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_04_213011) do
   create_table "cursos", force: :cascade do |t|
     t.string "nombre"
     t.string "sigla"
+    t.integer "profesor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["profesor_id"], name: "index_cursos_on_profesor_id"
   end
 
   create_table "evaluaciones", force: :cascade do |t|
@@ -116,6 +118,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_04_213011) do
 
   add_foreign_key "anuncios", "cursos"
   add_foreign_key "anuncios", "profesors"
+  add_foreign_key "cursos", "profesors"
   add_foreign_key "evaluaciones", "alumnos"
   add_foreign_key "evaluaciones", "cursos"
 end

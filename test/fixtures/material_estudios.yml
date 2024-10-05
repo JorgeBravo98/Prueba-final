@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  curso: one
+  fecha: 2024-10-04
+  descripcion: MyText
+  tipo_archivo: MyString
+
+two:
+  curso: two
+  fecha: 2024-10-04
+  descripcion: MyText
+  tipo_archivo: MyString

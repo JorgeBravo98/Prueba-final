@@ -21,4 +21,13 @@ Rails.application.routes.draw do
 
   # Recurso para manejar acciones de usuarios
   resources :users, only: [:index]
+
+
+  resources :cursos do
+    collection do
+      get 'new/:profesor_id', to: 'cursos#new', as: 'new_with_profesor'
+    end
+  end
+  
+
 end
