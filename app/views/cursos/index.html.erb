@@ -1,0 +1,12 @@
+<div class="mis-cursos-container">
+  <h1>Mis Cursos</h1>
+  <ul class="cursos-lista">
+    <% @cursos.each do |curso| %>
+      <li>
+        <strong><%= curso.nombre %></strong> - <%= curso.sigla %>
+        <%= link_to 'VER DETALLES', curso_path(curso), class: 'btn-detalles' %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to 'VOLVER AL MENÚ', profesores_menu_principal_path, class: 'btn-volver-menu' %>
+</div>

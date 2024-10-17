@@ -28,6 +28,12 @@ Rails.application.routes.draw do
       get 'new/:profesor_id', to: 'cursos#new', as: 'new_with_profesor'
     end
   end
+
+  # Rutas personalizadas para errores
+  get "/404", to: "errors#not_found"
+  get "/500", to: "errors#internal_server_error"
+  get "/422", to: "errors#unprocessable_entity"
+
   
 
 end

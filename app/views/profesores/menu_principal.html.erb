@@ -1,9 +1,14 @@
-<h1>Bienvenido al Menú Principal de Profesores</h1>
+<div class="container-profesor">
+  <!-- Título centrado -->
+  <h1 class="titulo-principal">SANVAC</h1>
 
-<p>Find me in app/views/profesores/menu_principal.html.erb</p>
+  <!-- Subtítulo alineado a la izquierda -->
+  <h2 class="subtitulo-bienvenida">Bienvenido Profesor <%= current_profesor.nombre %></h2>
 
-<!-- Botón para agregar un nuevo curso -->
-<%= link_to 'Agregar Curso', new_curso_path, class: 'btn btn-primary' %>
-
-<!-- Botón para cerrar sesión -->
-<%= link_to 'Cerrar sesión', destroy_profesor_session_path, method: :delete, data: { confirm: '¿Estás seguro de que quieres cerrar sesión?' }, class: 'btn btn-danger' %>
+  <!-- Contenedor para los botones -->
+  <div class="botones-menu">
+    <%= link_to 'AGREGAR CURSO', new_curso_path, class: 'btn-log-in' %>
+    <%= link_to 'VER MIS CURSOS', cursos_path, class: 'btn-log-in' %>
+    <%= link_to 'CERRAR SESIÓN', destroy_profesor_session_path, method: :delete, class: 'btn-cerrar-sesion' %>
+  </div>
+</div>

@@ -216,3 +216,94 @@ body {
   border-color: #faebcc;
   color: #8a6d3b;
 }
+
+/* DISEÑO LINKS PARA FORGOT YOUR PASSWORD Y SIGN UP*/
+.link-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.link-custom {
+  color: #063971; /* Color de los enlaces */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.link-custom:hover {
+  color: #052e61;
+}
+
+
+
+/* Contenedor general PAGINA REESTRABLECER CONTRASEÑA*/
+
+/* Input de email */
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #063971;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.input:focus {
+  border-color: #063971;
+  outline: none;
+  box-shadow: 0 0 5px rgba(6, 57, 113, 0.5);
+}
+
+/* Botón para resetear contraseña */
+.btn-reset-password {
+  padding: 15px 30px;
+  background-color: #063971;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.btn-reset-password:hover {
+  background-color: #052e61;
+}
+
+
+/* Ajustar el contenedor de los enlaces */
+.link-container2 {
+  display: flex;
+  justify-content: center; /* Centra ambos botones horizontalmente */
+  gap: 10px; /* Espacio más ajustado entre los botones */
+  margin-top: 15px; /* Espacio adicional para separarlo del formulario */
+}
+
+/* Estilos para los enlaces */
+.link-custom2 {
+  color: #063971;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px; /* Ajusta el tamaño del texto para ser más pequeño */
+  padding: 8px 15px; /* Tamaño más pequeño para parecer botones compactos */
+  border: 2px solid #063971; /* Borde azul */
+  border-radius: 20px; /* Bordes redondeados */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link-custom2:hover {
+  background-color: #063971; /* Fondo azul en hover */
+  color: #ffffff; /* Texto blanco en hover */
+}
+
+
+
+/* -------------------------------------------------------- */
+/*
+ *= require cursos_show
+*/
