@@ -4,7 +4,9 @@
     <% @cursos.each do |curso| %>
       <li>
         <strong><%= curso.nombre %></strong> - <%= curso.sigla %>
-        <%= link_to 'VER DETALLES', curso_path(curso), class: 'btn-detalles' %>
+        <%= link_to 'INGRESAR', curso_path(curso), class: 'btn-detalles' %>
+        <%= link_to 'EDITAR', edit_curso_path(curso),  class: 'btn-detalles' %>
+        <%= link_to 'ELIMINAR', curso_path(curso), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn-detalles' %>
       </li>
     <% end %>
   </ul>

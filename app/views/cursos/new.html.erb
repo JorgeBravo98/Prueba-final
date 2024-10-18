@@ -20,9 +20,15 @@
       <%= form.text_field :sigla %>
     </div>
 
+    <!-- Nuevo campo para la descripción -->
+    <div>
+      <%= form.label :descripcion %>
+      <%= form.text_field :descripcion %>
+    </div>
+
     <div class="botones-container">
-      <%= form.submit 'CREAR CURSO', class: 'btn-log-in' %>
-      <%= link_to 'VOLVER AL MENÚ', profesores_menu_principal_path, class: 'btn-volver-menu' %>
+      <%= form.submit 'CREAR CURSO', class: 'btn-detalles' %>
+      <%= link_to 'VOLVER AL MENÚ', profesores_menu_principal_path, class: 'btn-cerrar-sesion2' %>
     </div>
   <% end %>
 </div>

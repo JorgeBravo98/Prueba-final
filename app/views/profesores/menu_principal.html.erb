@@ -1,14 +1,41 @@
+<!-- Barra de navegación principal, fuera del contenedor-profesor -->
+<nav class="navbar">
+  <ul class="navbar-list">
+    <!-- Sección de Cursos -->
+    <li class="navbar-item dropdown">
+      <a href="#" class="navbar-link">ADMIN</a>
+      <div class="dropdown-content">
+        <%= link_to 'Ver mis cursos', cursos_path, class: 'dropdown-link' %>
+        <%= link_to 'Agregar curso', new_curso_path, class: 'dropdown-link' %>
+      </div>
+    </li>
+
+    <!-- Sección de Cursos -->
+    <li class="navbar-item dropdown">
+      <a href="#" class="navbar-link">CURSOS</a>
+      <div class="dropdown-content">
+        <% @cursos.each do |curso| %>
+          <%= link_to curso.nombre, curso_path(curso), class: 'dropdown-link' %>
+        <% end %>
+      </div>
+    </li>
+
+    <!-- Este elemento vacío ayuda a empujar el botón de cerrar sesión hacia la derecha -->
+    <li class="navbar-item flex-space"></li>
+
+    <li class="navbar-item">
+      <span class="navbar-text">UC</span>
+    </li>
+
+    <!-- Botón de Cerrar sesión alineado a la derecha -->
+    <li class="navbar-item">
+      <%= button_to 'Cerrar sesión', destroy_profesor_session_path, method: :delete, class: 'btn-cerrar-sesion' %>
+    </li>
+  </ul>
+</nav>
+
+<!-- Contenedor principal para el contenido -->
 <div class="container-profesor">
-  <!-- Título centrado -->
-  <h1 class="titulo-principal">SANVAC</h1>
-
   <!-- Subtítulo alineado a la izquierda -->
-  <h2 class="subtitulo-bienvenida">Bienvenido Profesor <%= current_profesor.nombre %></h2>
-
-  <!-- Contenedor para los botones -->
-  <div class="botones-menu">
-    <%= link_to 'AGREGAR CURSO', new_curso_path, class: 'btn-log-in' %>
-    <%= link_to 'VER MIS CURSOS', cursos_path, class: 'btn-log-in' %>
-    <%= link_to 'CERRAR SESIÓN', destroy_profesor_session_path, method: :delete, class: 'btn-cerrar-sesion' %>
-  </div>
+  <h2 class="subtitulo-bienvenida">Bienvenido Profesor <%= current_profesor.nombre %>!</h2>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_17_194805) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_18_165659) do
   create_table "administradores", force: :cascade do |t|
     t.string "correo"
     t.string "nombre"
@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_17_194805) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "profesor_id"
+    t.string "descripcion"
   end
 
   create_table "evaluaciones", force: :cascade do |t|

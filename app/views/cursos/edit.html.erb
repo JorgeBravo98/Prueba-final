@@ -1,0 +1,25 @@
+<div class="editar-curso-container">
+  <h1 class="titulo-principal">EDITAR CURSO</h1>
+
+  <%= form_with(model: @curso, local: true, class: 'form-curso') do |form| %>
+    <div class="campo-curso">
+      <%= form.label :nombre %>
+      <%= form.text_field :nombre, class: 'campo-input' %>
+    </div>
+
+    <div class="campo-curso">
+      <%= form.label :sigla %>
+      <%= form.text_field :sigla, class: 'campo-input' %>
+    </div>
+
+    <div class="campo-curso">
+      <%= form.label :descripcion %>
+      <%= form.text_field :descripcion, class: 'campo-input' %>
+    </div>
+
+    <div class="botones-curso">
+      <%= form.submit 'GUARDAR', class: 'btn-detalles' %>
+      <%= link_to 'VOLVER', cursos_path, class: 'btn-cerrar-sesion2' %>
+    </div>
+  <% end %>
+</div>

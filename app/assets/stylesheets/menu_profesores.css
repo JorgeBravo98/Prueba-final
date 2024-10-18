@@ -1,71 +1,106 @@
-/* Contenedor principal */
-.container-profesor {
+/* Estilo general de la barra de navegación */
+.navbar {
+    background-color: #063971; /* Color de fondo de la barra */
+    padding: 10px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between; /* Asegura que haya espacio entre los elementos */
     align-items: center;
-    margin-top: 50px;
+    width: 100%; /* Asegura que la barra ocupe todo el ancho */
   }
   
-  /* Título principal centrado */
-  .titulo-principal {
-    font-size: 3.5em;
-    color: #063971;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  /* Subtítulo alineado a la izquierda */
-  .subtitulo-bienvenida {
-    font-size: 1.5em;
-    color: #333;
-    text-align: left;
-    width: 100%;
-    max-width: 1200px;
-    margin-bottom: 30px;
-  }
-  
-  /* Contenedor para los botones */
-  .botones-menu {
+  /* Estilo para la lista de navegación */
+  .navbar-list {
+    list-style: none;
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 1200px;
+    flex-grow: 1; /* Esto asegura que el botón de cerrar sesión se empuje a la derecha */
+    margin: 0;
+    padding: 0;
   }
   
-  /* Estilos para los botones */
-  .btn-log-in, .btn-cerrar-sesion {
-    padding: 15px 30px;
-    background-color: #063971;
-    color: #ffffff;
+  /* Estilo para cada ítem del menú */
+  .navbar-item {
+    position: relative;
+    margin-right: 20px;
+  }
+  
+  /* Estilo para los enlaces */
+  .navbar-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    font-weight: bold;
+  }
+  
+  /* Espacio flexible para empujar el botón de cerrar sesión */
+  .flex-space {
+    flex-grow: 1; /* Este elemento se expande para empujar el botón de cerrar sesión a la derecha */
+  }
+  
+  /* Estilo para el botón de cerrar sesión */
+  .btn-cerrar-sesion {
+    background-color: white;
+    color: #063971;
+    padding: 10px 20px;
     border: 2px solid #063971;
     border-radius: 30px;
-    font-size: 18px;
-    text-align: center;
-    text-decoration: none;
     font-weight: bold;
-    cursor: pointer;
+    text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
-    text-decoration: none; /* Elimina el subrayado */
-    margin-top: 100px;
-  }
-  
-  .btn-log-in:hover, .btn-cerrar-sesion:hover {
-    background-color: #052e61;
-    color: #ffffff;
-  }
-  
-  /* Ajuste para el botón de cerrar sesión */
-  .btn-cerrar-sesion {
-    color: #063971;
-    text-decoration: none; /* Elimina el subrayado */
+    cursor: pointer;
   }
   
   .btn-cerrar-sesion:hover {
     background-color: #063971;
-    color: #ffffff;
-    text-decoration: none; /* Elimina el subrayado */
+    color: white;
   }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+  }
+  
+  /* Links dentro del dropdown */
+  .dropdown-link {
+    color: #063971;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-link:hover {
+    background-color: #f5f4f0;
+    border-radius: 5px;
+  }
+  
+  /* Mostrar el menú desplegable al hacer hover */
+  .navbar-item:hover .dropdown-content {
+    display: block;
+  }
+  
+/* Estilos para el botón de "Cerrar Sesión" */
+.btn-cerrar-sesion {
+    margin-left: auto; /* Mueve el botón al final de la barra */
+    background-color: #d9534f; /* Color rojo para indicar cierre */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.btn-cerrar-sesion:hover {
+    background-color: #c9302c;
+    transform: scale(1.05);
+}
 
 /* Estilos para el contenedor de la página "Mis Cursos" */
 .mis-cursos-container {
@@ -384,5 +419,13 @@
   .botones-curso .btn-volver-menu:hover {
     background-color: #063971;
     color: white;
+  }
+  
+  /* Estilo para el texto "UC" */
+.navbar-text {
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 28px;
   }
   

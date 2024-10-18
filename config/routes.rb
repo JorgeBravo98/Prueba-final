@@ -25,14 +25,16 @@ Rails.application.routes.draw do
 
   resources :cursos do
     collection do
-      get 'new/:profesor_id', to: 'cursos#new', as: 'new_with_profesor'
+      get 'mis_cursos', to: 'cursos#mis_cursos', as: 'mis_cursos_profesor'
     end
   end
+  
+  
 
-  # Rutas personalizadas para errores
+  # Rutas para manejo de errores
   get "/404", to: "errors#not_found"
-  get "/500", to: "errors#internal_server_error"
   get "/422", to: "errors#unprocessable_entity"
+  get "/500", to: "errors#internal_server_error"
 
   
 
