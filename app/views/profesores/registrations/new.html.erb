@@ -1,0 +1,47 @@
+<div class="form-container">
+  <div class="col-left">
+    <%= link_to "INICIAR SESIÓN", new_profesor_session_path, class: "btn-log-in" %>
+    <%= link_to "VOLVER A INICIO", root_path, class: "btn-log-in" %>
+  </div>
+
+  <div class="col-right">
+    <h2 class="titulo">CREAR CUENTA PROFESOR</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :nombre %><br />
+        <%= f.text_field :nombre, class: "input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :apellido %><br />
+        <%= f.text_field :apellido, class: "input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :nombre_usuario %><br />
+        <%= f.text_field :nombre_usuario, class: "input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class: "input" %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "REGISTRAR", class: "btn-registrar" %>
+      </div>
+    <% end %>
+  </div>
+</div>
