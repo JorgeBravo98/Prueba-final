@@ -19,5 +19,6 @@ class ApplicationController < ActionController::Base
   # Permitir los parámetros personalizados de Devise para el modelo Alumno
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nombre, :apellido, :numero_alumno])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password, :remember_me])
   end
 end
