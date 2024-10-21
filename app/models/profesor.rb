@@ -12,6 +12,7 @@ class Profesor < ApplicationRecord
   validates :nombre, presence: true
   validates :apellido, presence: true
   validates :nombre_usuario, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 
   # Otros campos personalizados, si es necesario
   # validates :avatar, presence: true  # Solo si es requerido el campo avatar
