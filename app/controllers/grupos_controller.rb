@@ -8,6 +8,7 @@ class GruposController < ApplicationController
 
   def new
     @grupo = @curso.grupos.new
+    @alumnos = Alumno.all # Asegúrate de que esta línea está presente para cargar los alumnos
   end
 
   def create
