@@ -23,6 +23,19 @@
     <!-- Este elemento vacío ayuda a empujar el botón de cerrar sesión hacia la derecha -->
     <li class="navbar-item flex-space"></li>
 
+    <!-- Avatar del profesor y texto "MI CUENTA" -->
+    <li class="navbar-item">
+      <!-- Enlace que lleva a la configuración de la cuenta -->
+      <%= link_to edit_profesor_registration_path do %>
+        <div class="avatar-wrapper">
+          <div class="avatar-container">
+            <%= image_tag(current_profesor.avatar.present? ? current_profesor.avatar.url : 'default-avatar.png', class: 'avatar-img') %>
+          </div>
+          <span class="perfil-text">MI CUENTA</span> <!-- Texto "MI CUENTA" debajo de la imagen -->
+        </div>
+      <% end %>
+    </li>
+
     <li class="navbar-item">
       <span class="navbar-text">UC</span>
     </li>
