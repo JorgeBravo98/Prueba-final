@@ -1,11 +1,10 @@
 class CursosController < ApplicationController
   before_action :authenticate_profesor! # Asegúrate de que el profesor esté autenticado
-  before_action :set_curso, only: [:show, :edit, :update, :destroy] # Asegúrate de encontrar el curso correcto para varias acciones
+  before_action :set_curso, only: [:show, :edit, :update, :destroy] # Asegúrate de encontrar el curso correcto
   before_action :authorize_profesor!, only: [:edit, :update, :destroy] # Verifica que el profesor tenga permiso para modificar el curso
 
   def new
     @curso = Curso.new
-    @profesor = current_profesor
   end
 
   def index
@@ -14,27 +13,27 @@ class CursosController < ApplicationController
 
   def create
     @curso = Curso.new(curso_params)
-    @curso.profesor = current_profesor # Asignar el profesor en lugar de solo el ID
-
+    @curso.profesor = current_profesor
+    Rails.logger.debug "Profesor autenticado: #{current_profesor.id}" if current_profesor # Añadir esta línea para depurar
+  
     if @curso.save
       redirect_to @curso, notice: 'Curso creado exitosamente.'
     else
       render :new
     end
   end
+  
 
   def show
-    @curso = Curso.find(params[:id])
+    # @curso ya está definido en el before_action :set_curso
   end
 
-  # Nuevo método edit
   def edit
-    @curso = Curso.find(params[:id])
+    # @curso ya está definido en el before_action :set_curso
   end
 
-  # Nuevo método update
   def update
-    @curso = Curso.find(params[:id])
+    # @curso ya está definido en el before_action :set_curso
     if @curso.update(curso_params)
       redirect_to @curso, notice: 'El curso ha sido actualizado correctamente.'
     else
@@ -43,7 +42,7 @@ class CursosController < ApplicationController
   end
 
   def destroy
-    @curso = Curso.find(params[:id])
+    # @curso ya está definido en el before_action :set_curso
     @curso.destroy
     redirect_to cursos_path, notice: 'Curso eliminado exitosamente.'
   end
@@ -59,8 +58,6 @@ class CursosController < ApplicationController
     @curso = Curso.find(params[:id])
   end
   
-  
-
   # Asegurarse de que solo el profesor que creó el curso pueda editarlo
   def authorize_profesor!
     unless @curso.profesor == current_profesor
@@ -72,6 +69,4 @@ class CursosController < ApplicationController
   def curso_params
     params.require(:curso).permit(:nombre, :sigla, :descripcion)
   end
-  
-
 end

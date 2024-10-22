@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_21_231316) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_22_141832) do
   create_table "administradores", force: :cascade do |t|
     t.string "correo"
     t.string "nombre"
@@ -132,7 +132,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_21_231316) do
 
   add_foreign_key "anuncios", "cursos"
   add_foreign_key "anuncios", "profesors"
-  add_foreign_key "cursos", "profesors"
+  add_foreign_key "cursos", "profesores", column: "profesor_id"
+  add_foreign_key "cursos", "profesores", column: "profesor_id"
   add_foreign_key "evaluaciones", "alumnos"
   add_foreign_key "evaluaciones", "cursos"
   add_foreign_key "evaluacions", "alumnos"

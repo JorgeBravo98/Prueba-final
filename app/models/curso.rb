@@ -1,5 +1,5 @@
 class Curso < ApplicationRecord
-    belongs_to :profesor
+  belongs_to :profesor
   has_and_belongs_to_many :alumnos
 
   validates :nombre, presence: true
