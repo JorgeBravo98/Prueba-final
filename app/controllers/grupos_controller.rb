@@ -7,18 +7,27 @@ class GruposController < ApplicationController
   end
 
   def new
-    @grupo = @curso.grupos.new
-    @alumnos = Alumno.all # Asegúrate de que esta línea está presente para cargar los alumnos
+    @curso = Curso.find(params[:curso_id]) # Asegúrate de cargar el curso
+    @grupo = Grupo.new # Inicializa un nuevo grupo vacío
+    @alumnos = Alumno.all # Carga todos los alumnos disponibles
   end
+  
 
   def create
-    @grupo = @curso.grupos.new(grupo_params)
+    @curso = Curso.find(params[:curso_id]) # Cargar el curso
+    @grupo = @curso.grupos.new(grupo_params) # Crear el grupo
+    @alumnos = Alumno.all # Cargar los alumnos
+  
     if @grupo.save
-      redirect_to curso_grupos_path(@curso), notice: 'Grupo creado exitosamente.'
+      redirect_to curso_grupos_path(@curso), notice: 'Grupo creado correctamente'
     else
+      # Asegúrate de que los alumnos se recargan para el formulario cuando hay un error
+      @alumnos = Alumno.all 
       render :new
     end
   end
+  
+  
 
   def edit
     @grupo = @curso.grupos.find(params[:id])
@@ -48,6 +57,7 @@ class GruposController < ApplicationController
       redirect_to curso_grupos_path(@curso), alert: 'Hubo un error al eliminar el grupo.'
     end
   end
+  
   
   
 

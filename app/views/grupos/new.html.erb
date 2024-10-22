@@ -9,27 +9,28 @@
     <%= form_with model: [@curso, @grupo], local: true do |f| %>
       <div class="form-group">
         <%= f.label :nombre, 'Nombre del Grupo' %>
-        <%= f.text_field :nombre, class: 'form-control' %>
+        <%= f.text_field :nombre, id: 'grupo_nombre', class: 'form-control' %>
       </div>
 
       <!-- Campo de búsqueda para filtrar alumnos -->
       <div class="form-group">
-        <%= label_tag 'Filtrar por número de alumno' %>
-        <%= text_field_tag 'filtro-alumnos', '', placeholder: 'Buscar por número de alumno', class: 'form-control', id: 'filtro-alumnos' %>
+        <%= f.label :filtro_alumnos, "Filtrar por número de alumno" %>
+        <%= text_field_tag 'filtro_alumnos', '', id: 'filtro-alumnos', class: 'form-control', placeholder: 'Buscar por número de alumno' %>
       </div>
 
       <!-- Lista de alumnos con checkbox -->
       <div class="form-group">
-        <h2>Seleccionar alumnos</h2>
+        <%= f.label :alumnos, "Seleccionar alumnos" %>
         <div id="lista-alumnos">
           <% @alumnos.each do |alumno| %>
             <div class="form-check alumno-item" data-numero="<%= alumno.numero_alumno %>">
-              <%= check_box_tag 'grupo[alumno_ids][]', alumno.id, false, class: 'form-check-input' %>
+              <%= check_box_tag 'grupo[alumno_ids][]', alumno.id, @grupo.alumno_ids.include?(alumno.id), class: 'form-check-input' %>
               <%= label_tag "grupo_alumno_ids_#{alumno.id}", "#{alumno.nombre} #{alumno.apellido} - #{alumno.numero_alumno}", class: 'form-check-label' %>
             </div>
           <% end %>
         </div>
       </div>
+
 
       <div class="form-group">
         <%= f.submit 'Crear Grupo', class: 'btn-crear-grupo' %>

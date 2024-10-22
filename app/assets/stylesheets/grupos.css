@@ -337,3 +337,41 @@
 .btn-cancelar:hover {
   background-color: #0056b3;
 }
+
+
+/* Estilo general para las alertas flotantes */
+.alerta-flotante {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #f8d7da; /* Fondo rojo claro para el error */
+  color: #721c24; /* Texto rojo oscuro */
+  padding: 15px 20px;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.5s ease, top 0.5s ease;
+  width: 300px;
+}
+
+/* Estilo para las alertas de éxito */
+.alerta-exito {
+  background-color: #d4edda; /* Fondo verde claro para éxito */
+  color: #155724; /* Texto verde oscuro */
+  border: 1px solid #c3e6cb;
+}
+
+/* Estilo para las alertas de error */
+.alerta-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Animación para que desaparezcan suavemente */
+.alerta-flotante.oculta {
+  opacity: 0;
+  top: 0;
+}

@@ -9,8 +9,9 @@
     <%= form_with model: [@curso, @grupo], local: true do |f| %>
       <div class="form-group">
         <%= f.label :nombre, 'Nombre del Grupo' %>
-        <%= f.text_field :nombre, class: 'form-control' %>
+        <%= f.text_field :nombre, id: 'grupo_nombre', class: 'form-control' %>
       </div>
+
 
       <div class="form-group">
         <h2>Seleccionar alumnos</h2>
