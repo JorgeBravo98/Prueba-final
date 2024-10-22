@@ -12,14 +12,23 @@
         <%= f.text_field :nombre, class: 'form-control' %>
       </div>
 
+      <!-- Campo de búsqueda para filtrar alumnos -->
+      <div class="form-group">
+        <%= label_tag 'Filtrar por número de alumno' %>
+        <%= text_field_tag 'filtro-alumnos', '', placeholder: 'Buscar por número de alumno', class: 'form-control', id: 'filtro-alumnos' %>
+      </div>
+
+      <!-- Lista de alumnos con checkbox -->
       <div class="form-group">
         <h2>Seleccionar alumnos</h2>
-        <% @alumnos.each do |alumno| %>
-          <div class="form-check">
-            <%= check_box_tag 'grupo[alumno_ids][]', alumno.id, false, class: 'form-check-input' %>
-            <%= label_tag "grupo_alumno_ids_#{alumno.id}", alumno.nombre, class: 'form-check-label' %>
-          </div>
-        <% end %>
+        <div id="lista-alumnos">
+          <% @alumnos.each do |alumno| %>
+            <div class="form-check alumno-item" data-numero="<%= alumno.numero_alumno %>">
+              <%= check_box_tag 'grupo[alumno_ids][]', alumno.id, false, class: 'form-check-input' %>
+              <%= label_tag "grupo_alumno_ids_#{alumno.id}", "#{alumno.nombre} #{alumno.apellido} - #{alumno.numero_alumno}", class: 'form-check-label' %>
+            </div>
+          <% end %>
+        </div>
       </div>
 
       <div class="form-group">
