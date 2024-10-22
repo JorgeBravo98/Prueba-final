@@ -1,0 +1,78 @@
+/* Estructura general de la página */
+.curso-page {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+  }
+  
+  /* Barra lateral de navegación */
+  .sidebar {
+    background-color: #1a1a1a;
+    width: 250px;
+    padding-top: 20px;
+    position: fixed; /* Barra lateral fija */
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  /* Contenedor de los grupos */
+  .grupos-container {
+    margin-left: 270px; /* Deja espacio para el sidebar */
+    padding: 40px;
+    flex-grow: 1;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 100vh; /* Asegura que ocupe toda la pantalla */
+  }
+  
+  /* Título de la página */
+  .grupos-container h1 {
+    font-size: 2.5em;
+    color: #063971;
+    margin-bottom: 20px;
+  }
+  
+  /* Contenedor del botón de crear grupo */
+  .btn-container {
+    margin-bottom: 20px;
+    text-align: right;
+  }
+  
+  /* Estilo del botón de crear grupo */
+  .btn-crear-grupo {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #063971;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  
+  .btn-crear-grupo:hover {
+    background-color: #052e61;
+  }
+  
+  /* Lista de grupos */
+  .grupos-lista {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .grupos-lista .grupo-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .grupos-lista .grupo-item:hover {
+    background-color: #e8e8e8;
+  }
+  

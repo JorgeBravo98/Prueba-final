@@ -1,0 +1,12 @@
+<h1>Crear un nuevo grupo para <%= @curso.nombre %></h1>
+
+<%= form_with model: [@curso, @grupo], local: true do |f| %>
+  <div>
+    <%= f.label :nombre, 'Nombre del Grupo' %>
+    <%= f.text_field :nombre %>
+  </div>
+  
+  <div>
+    <%= f.submit 'Crear Grupo' %>
+  </div>
+<% end %>

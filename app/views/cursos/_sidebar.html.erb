@@ -2,9 +2,9 @@
   <ul class="sidebar-list">
     <li><%= link_to 'Página de Inicio', curso_path(@curso) %></li>
     <li><%= link_to 'Anuncios', '#' %></li>
-    <li><%= link_to 'Alumnos', '#' %></li>
+    <li><%= link_to 'Personas', '#' %></li>
     <li><%= link_to 'Archivos', '#' %></li>
-    <li><%= link_to 'Grupos', '#' %></li>
+    <li><%= link_to 'Grupos', curso_grupos_path(@curso) %></li> <!-- Enlace a grupos -->
     <li><%= link_to 'Evaluaciones', '#' %></li>
   </ul>
   
@@ -13,5 +13,6 @@
     <%= link_to 'Volver al Menú', profesores_menu_principal_path, class: 'btn-volver-menu-sidebar' %>
   </div>
 </nav>
+
 
 
