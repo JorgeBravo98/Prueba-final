@@ -7,6 +7,7 @@ class GruposController < ApplicationController
   
     def new
       @grupo = @curso.grupos.new
+      @alumnos = Alumno.all # Obtener todos los alumnos existentes
     end
   
     def create
@@ -14,6 +15,7 @@ class GruposController < ApplicationController
       if @grupo.save
         redirect_to curso_grupos_path(@curso), notice: 'Grupo creado exitosamente.'
       else
+        @alumnos = Alumno.all # Asegúrate de volver a cargar los alumnos si falla la creación
         render :new
       end
     end
@@ -25,7 +27,7 @@ class GruposController < ApplicationController
     end
   
     def grupo_params
-      params.require(:grupo).permit(:nombre)
+      params.require(:grupo).permit(:nombre, alumno_ids: [])
     end
   end
   

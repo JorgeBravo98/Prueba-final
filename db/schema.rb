@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_22_152409) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_22_153955) do
   create_table "administradores", force: :cascade do |t|
     t.string "correo"
     t.string "nombre"
@@ -33,6 +33,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_22_152409) do
     t.datetime "updated_at", null: false
     t.string "encrypted_password"
     t.datetime "remember_created_at"
+  end
+
+  create_table "alumnos_grupos", id: false, force: :cascade do |t|
+    t.integer "grupo_id", null: false
+    t.integer "alumno_id", null: false
   end
 
   create_table "anuncios", force: :cascade do |t|

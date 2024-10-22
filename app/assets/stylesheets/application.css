@@ -199,10 +199,20 @@ body {
 }
 
 .alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
+  position: fixed; /* Fija la alerta para que flote sobre el contenido */
+  top: 20px; /* Ajusta la posición desde la parte superior de la pantalla */
+  right: 20px; /* Ajusta la posición desde el lado derecho */
+  background-color: #d4edda; /* Color de fondo verde claro para éxito */
+  color: #155724; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border: 1px solid #c3e6cb; /* Borde */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  width: auto; /* Tamaño automático según el contenido */
+  max-width: 300px; /* Limita el ancho máximo */
+  opacity: 1; /* Comienza visible */
+  transition: opacity 0.5s ease; /* Suaviza la desaparición */
 }
 
 .alert-notice {

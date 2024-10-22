@@ -75,4 +75,64 @@
   .grupos-lista .grupo-item:hover {
     background-color: #e8e8e8;
   }
+
+  
+  /* Contenedor principal para crear un grupo */
+.nuevo-grupo-container {
+    margin-left: 270px;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 270px);
+    min-height: 100vh;
+  }
+  
+  /* Título de la página */
+  .nuevo-grupo-container h1 {
+    font-size: 2.5em;
+    color: #063971;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el formulario */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #063971;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para la lista de alumnos */
+  .form-check {
+    margin-bottom: 10px;
+  }
+  
+  .form-check-input {
+    margin-right: 10px;
+  }
+  
+  .form-check-label {
+    font-size: 1.1em;
+    color: #333;
+  }
+  
+  /* Botón para crear grupo */
+  .btn-crear-grupo {
+    padding: 10px 20px;
+    background-color: #063971;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  
+  .btn-crear-grupo:hover {
+    background-color: #052e61;
+  }
   

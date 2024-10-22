@@ -1,12 +1,30 @@
-<h1>Crear un nuevo grupo para <%= @curso.nombre %></h1>
+<div class="curso-page">
+  <!-- Renderizamos el sidebar -->
+  <%= render 'cursos/sidebar' %>
 
-<%= form_with model: [@curso, @grupo], local: true do |f| %>
-  <div>
-    <%= f.label :nombre, 'Nombre del Grupo' %>
-    <%= f.text_field :nombre %>
+  <!-- Contenedor principal para crear un nuevo grupo -->
+  <div class="nuevo-grupo-container">
+    <h1>Crear un nuevo grupo para <%= @curso.nombre %></h1>
+
+    <%= form_with model: [@curso, @grupo], local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :nombre, 'Nombre del Grupo' %>
+        <%= f.text_field :nombre, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <h2>Seleccionar alumnos</h2>
+        <% @alumnos.each do |alumno| %>
+          <div class="form-check">
+            <%= check_box_tag 'grupo[alumno_ids][]', alumno.id, false, class: 'form-check-input' %>
+            <%= label_tag "grupo_alumno_ids_#{alumno.id}", alumno.nombre, class: 'form-check-label' %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit 'Crear Grupo', class: 'btn-crear-grupo' %>
+      </div>
+    <% end %>
   </div>
-  
-  <div>
-    <%= f.submit 'Crear Grupo' %>
-  </div>
-<% end %>
+</div>
