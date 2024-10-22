@@ -1,0 +1,89 @@
+/* Estructura general de la página */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden; /* Desactiva el scroll horizontal */
+  }
+  
+  .curso-page {
+    display: flex;
+    min-height: 100vh; /* Asegura que ocupe todo el alto de la pantalla */
+    overflow-y: auto; /* Solo permite el scroll en el eje vertical */
+    overflow-x: hidden; /* Desactiva cualquier scroll horizontal */
+  }
+  
+  /* Barra lateral de navegación */
+  .sidebar {
+    background-color: #063971;
+    width: 250px;
+    padding-top: 20px;
+    position: fixed; /* Barra lateral fija */
+    top: 0;
+    bottom: 0;
+    height: 100%; /* Ocupar toda la altura de la pantalla */
+    overflow-y: auto; /* Permite desplazamiento vertical si es necesario */
+    overflow-y: auto; /* Solo permite scroll vertical en la barra lateral */
+  }
+  
+  .sidebar-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-list li {
+    width: 100%;
+  }
+  
+  .sidebar-list li a {
+    display: block;
+    padding: 15px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .sidebar-list li a:hover {
+    background-color: #333333;
+    color: #00aaff;
+  }
+  
+  /* Contenido principal */
+  .detalles-curso {
+    margin-left: 270px; /* Deja espacio para la barra lateral */
+    padding: 40px;
+    width: calc(100% - 270px); /* Asegura que el contenido ocupe el espacio restante */
+    overflow-y: auto; /* Solo scroll vertical para el contenido */
+  }
+
+  /* Contenedor del botón al final del sidebar */
+.sidebar-bottom {
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    margin-left: 20px;
+  }
+  
+  /* Botón de "Volver al menú" con borde */
+  .btn-volver-menu-sidebar {
+    background-color: white;
+    color: #063971;
+    border: 2px solid #063971;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+  }
+  
+  /* Hover del botón */
+  .btn-volver-menu-sidebar:hover {
+    background-color: #063971;
+    color: white;
+  }
+  

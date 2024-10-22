@@ -1,7 +1,5 @@
-<div class="detalles-curso-container">
-  <h1 class="titulo-detalles-curso"><%= @curso.nombre %> - <%= @curso.sigla %></h1>
-
+<%= render 'sidebar' %> <!-- Incluir la barra lateral -->
+<div class="detalles-curso">
+  <h1><%= @curso.nombre %> - <%= @curso.sigla %></h1>
   <p><strong>Descripción:</strong> <%= @curso.descripcion %></p>
-
-  <%= link_to 'VOLVER', profesores_menu_principal_path, class: 'btn-volver-cursos' %>
 </div>
