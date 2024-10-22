@@ -155,3 +155,185 @@
   font-size: 1.1em;
   color: #333;
 }
+
+/* Estilo para los botones de editar y eliminar */
+.btn-editar-grupo, .btn-eliminar-grupo {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-editar-grupo {
+  background-color: #063971;
+  color: white;
+}
+
+.btn-editar-grupo:hover {
+  background-color: #0056b3;
+}
+
+.btn-eliminar-grupo {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-eliminar-grupo:hover {
+  background-color: #c82333;
+}
+
+/* Contenedor general para la página del grupo */
+.grupo-detalle {
+  margin-left: 270px; /* Espacio para el sidebar */
+  padding: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: calc(100% - 270px); /* Asegura que se ajuste al ancho restante */
+  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+}
+
+/* Título principal del grupo */
+.grupo-detalle h1 {
+  font-size: 2.5em;
+  color: #063971;
+  margin-bottom: 20px;
+}
+
+/* Título de la lista de alumnos */
+.grupo-detalle h2 {
+  font-size: 1.8em;
+  color: #343b29;
+  margin-bottom: 15px;
+}
+
+/* Lista de alumnos dentro del grupo */
+.grupo-detalle ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.grupo-detalle ul li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1.2em;
+  color: #333;
+}
+
+.grupo-detalle ul li:hover {
+  background-color: #e8e8e8;
+}
+
+/* Contenedor de cada grupo */
+.grupo-item {
+  display: flex;
+  justify-content: space-between; /* Alinea el contenido a los extremos */
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón de ver grupo */
+.btn-ver-grupo {
+  background-color: #063971;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-ver-grupo:hover {
+  background-color: #0056b3;
+}
+
+
+/* Botones de editar y eliminar */
+.btn-editar-grupo {
+  background-color: #218838;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-editar-grupo:hover {
+  background-color: #28a745;
+}
+
+.btn-eliminar-grupo {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-size: 16px; /* Ajuste de tamaño de fuente */
+}
+
+.btn-eliminar-grupo:hover {
+  background-color: #c82333;
+}
+
+/* Estilos del modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  z-index: 1000; /* Se asegura que el modal esté por encima de todo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-confirmar {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-confirmar:hover {
+  background-color: #c82333;
+}
+
+.btn-cancelar {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cancelar:hover {
+  background-color: #0056b3;
+}

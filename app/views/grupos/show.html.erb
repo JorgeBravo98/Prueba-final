@@ -1,0 +1,35 @@
+<div class="curso-page">
+  <!-- Renderizamos el sidebar -->
+  <%= render 'cursos/sidebar' %>
+
+  <!-- Contenedor del grupo -->
+  <div class="grupo-detalle">
+    <h1>Grupo: <%= @grupo.nombre %></h1>
+
+    <h2>Alumnos en el grupo:</h2>
+    <ul>
+      <% @grupo.alumnos.each do |alumno| %>
+        <li><%= alumno.nombre %> <%= alumno.apellido %> - <%= alumno.numero_alumno %></li>
+      <% end %>
+    </ul>
+
+    <!-- Botones de acciones: Editar y Eliminar -->
+    <div class="acciones-grupo">
+        <%= link_to 'Editar', edit_curso_grupo_path(@curso, @grupo), class: 'btn-editar-grupo' %>
+        <!-- Botón para abrir el modal de confirmación de eliminación -->
+        <button id="mostrar-modal" class="btn-eliminar-grupo">Eliminar</button>
+    </div>
+
+    <!-- Modal de confirmación para eliminar -->
+    <div id="confirm-modal" class="modal">
+      <div class="modal-content">
+        <p>¿Estás seguro de que deseas eliminar este grupo?</p>
+        <div class="modal-actions">
+          <button id="cancelar-eliminar" class="btn-cancelar">Cancelar</button>
+          <%= button_to 'Eliminar', curso_grupo_path(@curso, @grupo), method: :delete, class: 'btn-confirmar' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

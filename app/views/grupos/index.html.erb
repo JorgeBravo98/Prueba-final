@@ -2,7 +2,7 @@
   <!-- Renderizamos el sidebar -->
   <%= render 'cursos/sidebar' %>
 
-  <!-- Contenedor principal para los grupos -->
+  <!-- Contenedor de grupos -->
   <div class="grupos-container">
     <h1>Grupos de <%= @curso.nombre %></h1>
 
@@ -14,6 +14,9 @@
       <% @grupos.each do |grupo| %>
         <li class="grupo-item">
           <%= grupo.nombre %>
+
+          <!-- Enlace para ver el grupo -->
+          <%= link_to 'Ver grupo', curso_grupo_path(@curso, grupo), class: 'btn-ver-grupo' %>
         </li>
       <% end %>
     </ul>

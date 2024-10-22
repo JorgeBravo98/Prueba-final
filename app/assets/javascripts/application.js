@@ -1,3 +1,4 @@
+//= require rails-ujs
 document.addEventListener('DOMContentLoaded', function() {
     const filtroAlumnosInput = document.getElementById('filtro-alumnos');
     const alumnosList = document.querySelectorAll('.alumno-item');
@@ -32,3 +33,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2500); // Elimina el nodo después de 0.5 segundos
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('confirm-modal');
+    const mostrarModalBtn = document.getElementById('mostrar-modal');
+    const cancelarEliminarBtn = document.getElementById('cancelar-eliminar');
+  
+    mostrarModalBtn.addEventListener('click', function() {
+      modal.style.display = 'block'; // Muestra el modal
+    });
+  
+    cancelarEliminarBtn.addEventListener('click', function() {
+      modal.style.display = 'none'; // Oculta el modal al cancelar
+    });
+  
+    // Cerrar el modal si se hace clic fuera de la ventana modal
+    window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+  

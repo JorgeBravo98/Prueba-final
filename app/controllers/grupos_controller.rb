@@ -1,33 +1,66 @@
 class GruposController < ApplicationController
-    before_action :set_curso
-  
-    def index
-      @grupos = @curso.grupos
+  before_action :set_curso
+  before_action :set_grupo, only: [:edit, :update, :destroy]
+
+  def index
+    @grupos = @curso.grupos
+  end
+
+  def new
+    @grupo = @curso.grupos.new
+  end
+
+  def create
+    @grupo = @curso.grupos.new(grupo_params)
+    if @grupo.save
+      redirect_to curso_grupos_path(@curso), notice: 'Grupo creado exitosamente.'
+    else
+      render :new
     end
+  end
+
+  def edit
+    @grupo = @curso.grupos.find(params[:id])
+    @alumnos = Alumno.all # Cargar todos los alumnos para mostrarlos en el formulario
+  end
   
-    def new
-      @grupo = @curso.grupos.new
-      @alumnos = Alumno.all # Obtener todos los alumnos existentes
+
+  def show
+    @grupo = @curso.grupos.find(params[:id])
+  end
+  
+
+  def update
+    if @grupo.update(grupo_params)
+      redirect_to curso_grupos_path(@curso), notice: 'Grupo actualizado exitosamente.'
+    else
+      render :edit
     end
-  
-    def create
-      @grupo = @curso.grupos.new(grupo_params)
-      if @grupo.save
-        redirect_to curso_grupos_path(@curso), notice: 'Grupo creado exitosamente.'
-      else
-        @alumnos = Alumno.all # Asegúrate de volver a cargar los alumnos si falla la creación
-        render :new
-      end
-    end
-  
-    private
-  
-    def set_curso
-      @curso = Curso.find(params[:curso_id])
-    end
-  
-    def grupo_params
-      params.require(:grupo).permit(:nombre, alumno_ids: [])
+  end
+
+  def destroy
+    @grupo = @curso.grupos.find(params[:id])
+    
+    if @grupo.destroy
+      redirect_to curso_grupos_path(@curso), notice: 'Grupo eliminado exitosamente.'
+    else
+      redirect_to curso_grupos_path(@curso), alert: 'Hubo un error al eliminar el grupo.'
     end
   end
   
+  
+
+  private
+
+  def set_curso
+    @curso = Curso.find(params[:curso_id])
+  end
+
+  def set_grupo
+    @grupo = @curso.grupos.find(params[:id])
+  end
+
+  def grupo_params
+    params.require(:grupo).permit(:nombre, alumno_ids: [])
+  end
+end

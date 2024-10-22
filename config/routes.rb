@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     collection do
       get 'mis_cursos', to: 'cursos#mis_cursos', as: 'mis_cursos_profesor'
     end
-    resources :grupos, only: [:index, :new, :create]
+    resources :grupos, only: [:index, :new, :create, :edit, :update, :destroy, :show]
   end
   
   
