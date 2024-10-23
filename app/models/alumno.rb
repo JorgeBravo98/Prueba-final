@@ -4,6 +4,6 @@ class Alumno < ApplicationRecord
   has_and_belongs_to_many :grupos
   validates :numero_alumno, presence: true
 
-  has_many :inscripciones, class_name: 'Inscripcion', dependent: :destroy
-  has_many :cursos, through: :inscripciones
+  has_many :inscripcions, dependent: :destroy
+  has_many :cursos, through: :inscripcions
 end

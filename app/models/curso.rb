@@ -6,6 +6,6 @@ class Curso < ApplicationRecord
   validates :sigla, presence: true, uniqueness: true
 
   # Asegúrate de declarar primero la relación intermedia
-  has_many :inscripciones, class_name: 'Inscripcion', dependent: :destroy
-  has_many :alumnos, through: :inscripciones
+  has_many :inscripcions, dependent: :destroy
+  has_many :alumnos, through: :inscripcions
 end
