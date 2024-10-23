@@ -86,3 +86,8 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
+
+# gema cloudinary
+gem 'cloudinary'
+gem 'activestorage-cloudinary-service'
+

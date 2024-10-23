@@ -78,6 +78,12 @@
         <%= f.password_field :password_confirmation, class: "input" %>
       </div>
 
+      <!-- Campo para el avatar -->
+      <div class="field">
+        <%= f.label :avatar, "Avatar" %><br />
+        <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png', class: "input" %>
+      </div>
+
       <div class="actions">
         <%= f.submit "REGISTRAR", class: "btn-registrar" %>
       </div>

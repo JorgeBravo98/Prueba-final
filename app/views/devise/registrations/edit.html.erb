@@ -1,9 +1,9 @@
 <body class="perfil-body">
   <div class="perfil-container">
     <div class="perfil-header">
-      <!-- Mostrar la imagen predeterminada para el avatar -->
+      <!-- Mostrar el avatar del profesor -->
       <div class="avatar-placeholder">
-        <%= image_tag('default-avatar.png', class: 'avatar-img') %>
+        <%= image_tag(current_profesor.avatar.present? ? current_profesor.avatar.url : 'default-avatar.png', class: 'avatar-img') %>
       </div>
 
       <!-- Mostrar el nombre del profesor -->
