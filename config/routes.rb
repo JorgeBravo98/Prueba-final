@@ -4,12 +4,15 @@ Rails.application.routes.draw do
     registrations: 'profesores/registrations'
   }
   # Ruta para el menú principal de alumnos
-  get 'menu_principal_alumnos', to: 'alumnos#menu_principal'
+  get 'menu_principal_alumnos', to: 'alumnos#menu_principal', as: :alumnos_menu_principal
   get 'profesores/menu_principal', to: 'profesores#menu_principal', as: :profesores_menu_principal
 
 
   # Devise para alumnos con un controlador personalizado para registrations
-  devise_for :alumnos, controllers: { registrations: 'registrations' }
+  devise_for :alumnos, path: 'alumnos', controllers: {
+    registrations: 'alumnos/registrations'
+  }
+
 
   # Devise para usuarios (sin controlador personalizado)
   devise_for :users

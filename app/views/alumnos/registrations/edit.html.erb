@@ -1,0 +1,51 @@
+<body class="perfil-body">
+  <div class="perfil-container">
+    <div class="perfil-header">
+      <!-- Mostrar la imagen predeterminada para el avatar -->
+      <div class="avatar-placeholder">
+        <%= image_tag('default-avatar.png', class: 'avatar-img') %>
+      </div>
+
+      <!-- Mostrar el nombre del alumno -->
+      <h1><%= current_alumno.nombre %> <%= current_alumno.apellido %></h1>
+    </div>
+
+    <!-- Sección de edición del perfil a la derecha -->
+    <div class="perfil-form">
+      <%= form_for(current_alumno, url: edit_alumno_registration_path) do |f| %>
+        <div class="form-group">
+          <%= f.label :email, "Correo electrónico" %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password, "Contraseña (déjalo en blanco si no deseas cambiarla)" %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, "Confirmar Contraseña" %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :current_password, "Contraseña actual (para confirmar los cambios)" %>
+          <%= f.password_field :current_password, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Actualizar perfil", class: 'btn-actualizar-perfil' %>
+        </div>
+      <% end %>
+
+      <!-- Sección de eliminación de cuenta -->
+      <div class="eliminar-cuenta">
+        <h3>Cancelar mi cuenta</h3>
+        <p>¿Descontento?</p>
+        <%= button_to 'Cancelar mi cuenta', registration_path(current_alumno), method: :delete, class: 'btn-cancelar-cuenta' %>
+      </div>
+
+      <%= link_to 'Volver', alumnos_menu_principal_path, class: 'btn-volver' %>
+    </div>
+  </div>
+</body>

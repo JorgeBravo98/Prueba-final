@@ -3,16 +3,17 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # Sobrescribir el método de redirección después del inicio de sesión
+  # app/controllers/application_controller.rb
   def after_sign_in_path_for(resource)
-    # Si el usuario que inicia sesión es un Alumno, redirige a la página principal de alumnos
     if resource.is_a?(Alumno)
-      menu_principal_alumnos_path # Redirigir a la ruta que lleva al menú principal de los alumnos
+      alumnos_menu_principal_path # Ruta correcta para alumnos
     elsif resource.is_a?(Profesor)
-      profesores_menu_principal_path # Cambia a la ruta que apunta a tu página principal de profesores
+      profesores_menu_principal_path # Ruta correcta para profesores
     else
-      super # Si no es Alumno o Profesor, aplica el comportamiento por defecto de Devise
+      root_path # Redirigir a la página de inicio para otros roles
     end
   end
+
 
   protected
 
