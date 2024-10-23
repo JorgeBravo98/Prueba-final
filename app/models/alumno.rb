@@ -3,4 +3,6 @@ class Alumno < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_and_belongs_to_many :grupos
   validates :numero_alumno, presence: true
+  has_many :inscripciones, class_name: 'Inscripcion'
+  has_many :cursos, through: :inscripciones
 end

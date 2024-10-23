@@ -5,4 +5,6 @@ class Curso < ApplicationRecord
 
   validates :nombre, presence: true
   validates :sigla, presence: true, uniqueness: true
+  has_many :inscripciones, class_name: 'Inscripcion'
+  has_many :alumnos, through: :inscripciones
 end

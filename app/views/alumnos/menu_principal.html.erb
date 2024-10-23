@@ -1,5 +1,54 @@
-<h1>Bienvenido al Menú Principal de Alumnos</h1>
+<!-- Barra de navegación principal, fuera del contenedor-alumno -->
+<nav class="navbar">
+  <ul class="navbar-list">
+    <!-- Sección de Administración para Alumnos (con Inscribir curso) -->
+    <li class="navbar-item dropdown">
+      <a href="#" class="navbar-link">ADMIN</a>
+      <div class="dropdown-content">
+        <%= link_to 'Inscribir curso', "inscribir_curso_path", class: 'dropdown-link' %>
+      </div>
+    </li>
 
-<p>Find me in app/views/alumnos/menu_principal.html.erb</p>
-<%= link_to 'Cerrar sesión', destroy_alumno_session_path, method: :delete, data: { confirm: '¿Estás seguro de que quieres cerrar sesión?' } %>
+    <!-- Este elemento vacío ayuda a empujar el botón de cerrar sesión hacia la derecha -->
+    <li class="navbar-item flex-space"></li>
 
+    <!-- Avatar del alumno y texto "MI CUENTA" -->
+    <li class="navbar-item">
+      <!-- Enlace que lleva a la configuración de la cuenta -->
+      <%= link_to edit_alumno_registration_path do %>
+        <div class="avatar-wrapper">
+          <div class="avatar-container">
+            <%= image_tag(current_alumno.avatar.present? ? current_alumno.avatar.url : 'default-avatar.png', class: 'avatar-img') %>
+          </div>
+          <span class="perfil-text">MI CUENTA</span> <!-- Texto "MI CUENTA" debajo de la imagen -->
+        </div>
+      <% end %>
+    </li>
+
+    <li class="navbar-item">
+      <span class="navbar-text">UC</span>
+    </li>
+
+    <!-- Botón de Cerrar sesión alineado a la derecha -->
+    <li class="navbar-item">
+      <%= button_to 'Cerrar sesión', destroy_alumno_session_path, method: :delete, class: 'btn-cerrar-sesion3' %>
+    </li>
+  </ul>
+</nav>
+
+<!-- Contenedor principal para los cursos del alumno -->
+<div class="container-alumno">
+  <!-- Subtítulo alineado a la izquierda -->
+  <h2 class="subtitulo-bienvenida">Bienvenido Alumno <%= current_alumno.nombre %>!</h2>
+
+  <!-- Cursos del alumno como widgets -->
+  <div class="cursos-grid">
+    <% @cursos.each do |curso| %>
+      <div class="curso-widget">
+        <h3><%= curso.nombre %></h3>
+        <p><%= curso.descripcion %></p>
+        <%= link_to 'Ver Curso', curso_path(curso), class: 'btn-ver-curso' %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_22_153955) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_23_022335) do
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
   create_table "administradores", force: :cascade do |t|
     t.string "correo"
     t.string "nombre"
@@ -93,6 +121,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_22_153955) do
     t.index ["curso_id"], name: "index_grupos_on_curso_id"
   end
 
+  create_table "inscripcions", force: :cascade do |t|
+    t.integer "alumno_id", null: false
+    t.integer "curso_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alumno_id"], name: "index_inscripcions_on_alumno_id"
+    t.index ["curso_id"], name: "index_inscripcions_on_curso_id"
+  end
+
   create_table "material_estudios", force: :cascade do |t|
     t.integer "curso_id", null: false
     t.date "fecha"
@@ -143,6 +180,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_22_153955) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "anuncios", "cursos"
   add_foreign_key "anuncios", "profesors"
   add_foreign_key "cursos", "profesores", column: "profesor_id"
@@ -152,5 +191,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_22_153955) do
   add_foreign_key "evaluacions", "alumnos"
   add_foreign_key "evaluacions", "cursos"
   add_foreign_key "grupos", "cursos"
+  add_foreign_key "inscripcions", "alumnos"
+  add_foreign_key "inscripcions", "cursos"
   add_foreign_key "material_estudios", "cursos"
 end
