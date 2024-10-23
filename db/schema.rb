@@ -168,6 +168,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_23_151739) do
     t.index ["reset_password_token"], name: "index_profesors_on_reset_password_token", unique: true
   end
 
+  create_table "solicituds", force: :cascade do |t|
+    t.integer "alumno_id", null: false
+    t.integer "curso_id", null: false
+    t.integer "profesor_id", null: false
+    t.string "estado"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alumno_id"], name: "index_solicituds_on_alumno_id"
+    t.index ["curso_id"], name: "index_solicituds_on_curso_id"
+    t.index ["profesor_id"], name: "index_solicituds_on_profesor_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -194,4 +206,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_23_151739) do
   add_foreign_key "inscripcions", "alumnos"
   add_foreign_key "inscripcions", "cursos"
   add_foreign_key "material_estudios", "cursos"
+  add_foreign_key "solicituds", "profesors"
 end

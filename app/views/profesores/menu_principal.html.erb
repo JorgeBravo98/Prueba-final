@@ -10,16 +10,6 @@
       </div>
     </li>
 
-    <!-- Sección de Cursos -->
-    <li class="navbar-item dropdown">
-      <a href="#" class="navbar-link">CURSOS</a>
-      <div class="dropdown-content">
-        <% @cursos.each do |curso| %>
-          <%= link_to curso.nombre, curso_path(curso), class: 'dropdown-link' %>
-        <% end %>
-      </div>
-    </li>
-
     <!-- Sección de Buzón -->
     <li class="navbar-item dropdown">
       <a href="#" class="navbar-link">BUZÓN</a>
@@ -34,13 +24,12 @@
 
     <!-- Avatar del profesor y texto "MI CUENTA" -->
     <li class="navbar-item">
-      <!-- Enlace que lleva a la configuración de la cuenta -->
       <%= link_to edit_profesor_registration_path do %>
         <div class="avatar-wrapper">
           <div class="avatar-container">
             <%= image_tag(current_profesor.avatar.present? ? current_profesor.avatar.url : 'default-avatar.png', class: 'avatar-img') %>
           </div>
-          <span class="perfil-text">MI CUENTA</span> <!-- Texto "MI CUENTA" debajo de la imagen -->
+          <span class="perfil-text">MI CUENTA</span>
         </div>
       <% end %>
     </li>
@@ -60,5 +49,15 @@
 <div class="container-profesor">
   <!-- Subtítulo alineado a la izquierda -->
   <h2 class="subtitulo-bienvenida">Bienvenido Profesor <%= current_profesor.nombre %>!</h2>
-</div>
 
+  <!-- Sección de Cursos como widgets -->
+  <div class="cursos-grid">
+    <% @cursos.each do |curso| %>
+      <div class="curso-widget">
+        <h3><%= curso.nombre %></h3>
+        <p><%= curso.sigla %></p>
+        <%= link_to 'Ver Curso', curso_path(curso), class: 'btn-ver-curso' %>
+      </div>
+    <% end %>
+  </div>
+</div>

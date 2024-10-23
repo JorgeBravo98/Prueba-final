@@ -44,10 +44,11 @@
 .col-right {
   flex: 2;
   padding: 20px;
+  
 }
 
 .titulo {
-  font-size: 28px;
+  font-size: 18px;
   color: #063971;
   margin-bottom: 20px;
   text-align: left;

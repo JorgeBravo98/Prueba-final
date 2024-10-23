@@ -107,7 +107,7 @@ body {
 
 /* Lado derecho (formulario de creación de cuenta) */
 .col-right {
-  flex: 0.5;
+  flex: 0.7;
   padding: 20px;
 }
 

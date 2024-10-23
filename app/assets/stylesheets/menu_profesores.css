@@ -525,3 +525,70 @@
 .btn-cancelar:hover {
   background-color: #0056b3;
 }
+
+/* Estilos para el contenedor principal del profesor */
+.container-profesor {
+  padding: 20px;
+  max-width: 1050px; /* Limita el ancho total para que no entren más de 3 widgets */
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+/* Subtítulo de bienvenida */
+.subtitulo-bienvenida {
+  font-size: 2em;
+  color: #063971;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el grid de cursos */
+.cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Limita a 3 columnas */
+  gap: 20px; /* Espacio entre los widgets */
+  margin-top: 20px;
+  max-width: 100%; /* Asegura que ocupe el ancho máximo */
+}
+
+/* Estilos para cada widget de curso */
+.curso-widget {
+  background-color: #f5f4f0;
+  width: 280px; /* Fijamos un ancho máximo para las tarjetas */
+  padding: 20px;
+  border: 2px solid #063971;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.curso-widget h3 {
+  font-size: 1.5em;
+  color: #063971;
+}
+
+.curso-widget p {
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Estilos del botón dentro del widget */
+.btn-ver-curso {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #063971;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-ver-curso:hover {
+  background-color: #052e61;
+}
+
+/* Efecto hover para el widget */
+.curso-widget:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
