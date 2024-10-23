@@ -117,3 +117,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// Función para abrir el modal y configurar el enlace de eliminación
+function openModal(cursoId) {
+    document.getElementById("eliminarCursoModal").style.display = "flex";
+    const deleteButton = document.getElementById("delete-course-button");
+    deleteButton.setAttribute("formaction", `/cursos/${cursoId}`);
+  }
+  
+  // Función para cerrar el modal
+  function closeModal() {
+    document.getElementById("eliminarCursoModal").style.display = "none";
+  }
+  

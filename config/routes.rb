@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   get 'menu_principal_alumnos', to: 'alumnos#menu_principal', as: :alumnos_menu_principal
   get 'profesores/menu_principal', to: 'profesores#menu_principal', as: :profesores_menu_principal
 
+  # Rutas para solicitudes de cursos y mensajes
+  get 'solicitudes_cursos', to: 'cursos#solicitudes', as: 'solicitudes_cursos'
+  get 'mensajes', to: 'mensajes#index', as: 'mensajes'
+
+
 
   # Devise para alumnos con un controlador personalizado para registrations
   devise_for :alumnos, path: 'alumnos', controllers: {

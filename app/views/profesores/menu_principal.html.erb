@@ -1,7 +1,7 @@
 <!-- Barra de navegación principal, fuera del contenedor-profesor -->
 <nav class="navbar">
   <ul class="navbar-list">
-    <!-- Sección de Cursos -->
+    <!-- Sección de Admin -->
     <li class="navbar-item dropdown">
       <a href="#" class="navbar-link">ADMIN</a>
       <div class="dropdown-content">
@@ -17,6 +17,15 @@
         <% @cursos.each do |curso| %>
           <%= link_to curso.nombre, curso_path(curso), class: 'dropdown-link' %>
         <% end %>
+      </div>
+    </li>
+
+    <!-- Sección de Buzón -->
+    <li class="navbar-item dropdown">
+      <a href="#" class="navbar-link">BUZÓN</a>
+      <div class="dropdown-content">
+        <%= link_to 'Solicitudes cursos', solicitudes_cursos_path, class: 'dropdown-link' %>
+        <%= link_to 'Mensajes', mensajes_path, class: 'dropdown-link' %>
       </div>
     </li>
 

@@ -6,9 +6,23 @@
         <strong><%= curso.nombre %></strong> - <%= curso.sigla %>
         <%= link_to 'INGRESAR', curso_path(curso), class: 'btn-detalles' %>
         <%= link_to 'EDITAR', edit_curso_path(curso),  class: 'btn-detalles' %>
-        <%= link_to 'ELIMINAR', curso_path(curso), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn-detalles' %>
+
+        <!-- Botón para abrir el modal de confirmación -->
+        <button class="btn-detalles" onclick="openModal(<%= curso.id %>)">ELIMINAR</button>
       </li>
     <% end %>
   </ul>
   <%= link_to 'VOLVER AL MENÚ', profesores_menu_principal_path, class: 'btn-volver-menu' %>
+
+  <!-- Modal de confirmación de eliminación -->
+  <div id="eliminarCursoModal" class="modal">
+    <div class="modal-content">
+      <h2>Confirmar Eliminación</h2>
+      <p>¿Estás seguro de que deseas eliminar este curso?</p>
+      <div class="modal-buttons">
+        <%= button_to 'Eliminar', '#', method: :delete, class: 'btn-eliminar', id: 'delete-course-button' %>
+        <button class="btn-cancelar" onclick="closeModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
 </div>
