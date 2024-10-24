@@ -5,6 +5,8 @@ class Curso < ApplicationRecord
   validates :nombre, presence: true
   validates :sigla, presence: true, uniqueness: true
 
+  has_many :evaluaciones, class_name: 'Evaluacion', dependent: :destroy
+
   # Asegúrate de declarar primero la relación intermedia
   has_many :inscripcions, dependent: :destroy
   has_many :alumnos, through: :inscripcions

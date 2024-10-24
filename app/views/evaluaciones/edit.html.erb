@@ -1,0 +1,24 @@
+<h2>Editar Evaluación <%= @evaluacion.nombre_evaluacion %></h2>
+
+<%= form_for([@curso, @evaluacion]) do |f| %>
+  <div>
+    <%= f.label :nombre_evaluacion %>
+    <%= f.text_field :nombre_evaluacion %>
+  </div>
+
+  <div>
+    <%= f.label :fecha_inicio %>
+    <%= f.date_select :fecha_inicio %>
+  </div>
+
+  <div>
+    <%= f.label :fecha_termino %>
+    <%= f.date_select :fecha_termino %>
+  </div>
+
+  <div>
+    <%= f.submit 'Actualizar Evaluación' %>
+  </div>
+<% end %>
+
+<%= link_to 'Volver a Evaluaciones', curso_evaluaciones_path(@curso) %>

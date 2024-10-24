@@ -1,0 +1,33 @@
+<div class="layout">
+  <%= render 'cursos/sidebar', curso: @curso %>
+
+  <div class="content-evaluaciones">
+    <h1>Evaluaciones del curso <%= @curso.nombre %></h1>
+    <h2>Nueva Evaluación para <%= @curso.nombre %></h2>
+
+    <div class="form-evaluacion">
+      <%= form_for([@curso, @evaluacion], url: curso_evaluaciones_path(@curso)) do |f| %>
+        <div>
+          <%= f.label :nombre_evaluacion, "Nombre de la Evaluación" %>
+          <%= f.text_field :nombre_evaluacion, class: "input" %>
+        </div>
+
+        <div>
+          <%= f.label :fecha_inicio, "Fecha de Inicio" %>
+          <%= f.date_select :fecha_inicio, class: "input" %>
+        </div>
+
+        <div>
+          <%= f.label :fecha_termino, "Fecha de Término" %>
+          <%= f.date_select :fecha_termino, class: "input" %>
+        </div>
+
+        <div>
+          <%= f.submit 'Crear Evaluación', class: "btn-submit-evaluacion" %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= yield %>
+  </div>
+</div>

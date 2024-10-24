@@ -1,0 +1,44 @@
+<div class="layout">
+  <%= render 'cursos/sidebar', curso: @curso %>
+
+  <div class="content-evaluaciones">
+    <h1>Evaluaciones del curso <%= @curso.nombre %></h1>
+
+    <h2>Evaluaciones de <%= @curso.profesor.nombre %></h2>
+
+    <!-- Botón para agregar nueva evaluación -->
+    <div class="btn-container">
+      <%= link_to 'Nueva Evaluación', new_curso_evaluacione_path(@curso), class: 'btn-evaluaciones' %>
+    </div>
+
+    <!-- Tabla de evaluaciones con el nuevo estilo -->
+    <table class="table-evaluaciones">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Fecha de Inicio</th>
+          <th>Fecha de Término</th>
+          <th>Calificación</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @evaluaciones.each do |evaluacion| %>
+          <tr>
+            <td><%= evaluacion.nombre_evaluacion %></td>
+            <td><%= evaluacion.fecha_inicio %></td>
+            <td><%= evaluacion.fecha_termino %></td>
+            <td><%= evaluacion.calificacion || 'No calificada' %></td>
+            <td>
+              <%= link_to 'Ver', curso_evaluacion_path(@curso, evaluacion), class: 'btn-evaluaciones' %> |
+              <%= link_to 'Editar', edit_curso_evaluacion_path(@curso, evaluacion), class: 'btn-evaluaciones' %> |
+              <%= link_to 'Calificar', calificar_curso_evaluacion_path(@curso, evaluacion), method: :patch, class: 'btn-evaluaciones' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= yield %>
+  </div>
+</div>

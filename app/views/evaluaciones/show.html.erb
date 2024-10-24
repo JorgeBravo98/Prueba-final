@@ -1,0 +1,9 @@
+<h2>Detalles de la Evaluación <%= @evaluacion.nombre_evaluacion %></h2>
+
+<p>Nombre: <%= @evaluacion.nombre_evaluacion %></p>
+<p>Fecha de Inicio: <%= @evaluacion.fecha_inicio %></p>
+<p>Fecha de Término: <%= @evaluacion.fecha_termino %></p>
+<p>Calificación: <%= @evaluacion.calificacion || 'No calificada' %></p>
+
+<%= link_to 'Editar Evaluación', edit_curso_evaluacion_path(@curso, @evaluacion) %> |
+<%= link_to 'Volver a Evaluaciones', curso_evaluaciones_path(@curso) %>
