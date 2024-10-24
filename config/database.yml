@@ -12,11 +12,5 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  database: base_sanvac  # Nombre de la base de datos en Render
-  username: base_sanvac_user  # Usuario de la base de datos en Render
-  password: <%= ENV['DATABASE_PASSWORD'] %>  # Variable de entorno con la contraseña
-  host: <%= ENV['DATABASE_HOST'] %>  # Variable de entorno con el host
-  port: 5432
+  <<: *default
+  password: <%= ENV["DATABASE_URL"] %>
