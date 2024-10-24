@@ -1,9 +1,15 @@
 class EvaluacionesController < ApplicationController
   before_action :set_curso
-  before_action :set_evaluacion, only: [:show, :edit, :update, :calificar]
+  before_action :set_evaluacion, only: [:show, :edit, :update, :calificar, :destroy]
 
   def index
     @evaluaciones = @curso.evaluaciones
+  end
+  
+  def destroy
+    @evaluacion.destroy
+    flash[:notice] = 'La evaluación ha sido eliminada correctamente.'
+    redirect_to curso_evaluaciones_path(@curso)
   end
 
   def show
@@ -15,8 +21,11 @@ class EvaluacionesController < ApplicationController
   end
 
   def create
-    #@evaluacion = @curso.evaluaciones.build(evaluacion_params)
-    #@evaluacion.alumno_id = current_alumno.id # Asignar el ID del alumno
+    @curso = Curso.find(params[:curso_id]) 
+    @evaluacion = @curso.evaluaciones.build(evaluacion_params)
+  
+    #Temporalmente asignar un alumno genérico o dejar este valor como nulo
+    @evaluacion.alumno_id = Alumno.first.id if Alumno.exists? # O asignar un ID de alumno que exista
   
     if @evaluacion.save
       flash[:notice] = 'Evaluación creada exitosamente.'
@@ -41,15 +50,34 @@ class EvaluacionesController < ApplicationController
   end
 
   def calificar
-    if @evaluacion.update(calificacion_params)
-      flash[:notice] = 'Evaluación calificada exitosamente.'
-      redirect_to curso_evaluaciones_path(@curso)
+    @evaluacion = @curso.evaluaciones.find(params[:id])
+  
+    # Debug para ver los parámetros que se están enviando
+    Rails.logger.debug "PARAMS: #{params.inspect}"
+  
+    # Solo procedemos a actualizar si el parámetro calificacion está presente
+    if params[:evaluacion] && params[:evaluacion][:calificacion].present?
+      if @evaluacion.update(calificacion_params)
+        flash[:notice] = 'Calificación guardada exitosamente.'
+        redirect_to curso_evaluaciones_path(@curso)
+      else
+        flash[:alert] = 'No se pudo guardar la calificación.'
+        render :calificar
+      end
     else
-      render :show
+      flash[:alert] = 'Falta la calificación. Por favor, ingrese una calificación.'
+      render :calificar
     end
   end
+  
+  
+  
 
   private
+
+  def calificacion_params
+    params.require(:evaluacion).permit(:calificacion)
+  end
 
   def set_curso
     @curso = Curso.find(params[:curso_id])
@@ -60,10 +88,6 @@ class EvaluacionesController < ApplicationController
   end
 
   def evaluacion_params
-    params.require(:evaluacion).permit(:nombre_evaluacion, :fecha_inicio, :fecha_termino, :alumno_id)
-  end
-
-  def calificacion_params
-    params.require(:evaluacion).permit(:calificacion)
+    params.require(:evaluacion).permit(:nombre_evaluacion, :fecha_inicio, :fecha_termino)
   end
 end

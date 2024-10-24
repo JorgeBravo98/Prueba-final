@@ -1,9 +1,18 @@
-<h2>Detalles de la Evaluación <%= @evaluacion.nombre_evaluacion %></h2>
+<div class="layout">
+  <%= render 'cursos/sidebar', curso: @curso %>
 
-<p>Nombre: <%= @evaluacion.nombre_evaluacion %></p>
-<p>Fecha de Inicio: <%= @evaluacion.fecha_inicio %></p>
-<p>Fecha de Término: <%= @evaluacion.fecha_termino %></p>
-<p>Calificación: <%= @evaluacion.calificacion || 'No calificada' %></p>
+  <div class="content-evaluaciones">
+    <h2>Detalles de la Evaluación <%= @evaluacion.nombre_evaluacion %></h2>
 
-<%= link_to 'Editar Evaluación', edit_curso_evaluacion_path(@curso, @evaluacion) %> |
-<%= link_to 'Volver a Evaluaciones', curso_evaluaciones_path(@curso) %>
+    <div class="detalles-evaluacion">
+      <p><strong>Nombre:</strong> <%= @evaluacion.nombre_evaluacion %></p>
+      <p><strong>Fecha de Inicio:</strong> <%= @evaluacion.fecha_inicio %></p>
+      <p><strong>Fecha de Término:</strong> <%= @evaluacion.fecha_termino %></p>
+    </div>
+
+    <div class="acciones-evaluacion">
+      <%= link_to 'Editar Evaluación', edit_curso_evaluacione_path(@curso, @evaluacion), class: 'btn-evaluaciones' %>
+      <%= link_to 'Volver a Evaluaciones', curso_evaluaciones_path(@curso), class: 'btn-evaluaciones' %>
+    </div>
+  </div>
+</div>

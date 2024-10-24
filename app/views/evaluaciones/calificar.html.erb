@@ -1,2 +1,37 @@
-<h1>Evaluaciones#calificar</h1>
-<p>Find me in app/views/evaluaciones/calificar.html.erb</p>
+<div class="layout">
+  <%= render 'cursos/sidebar', curso: @curso %>
+
+  <div class="content-evaluaciones">
+    <h2>Calificar Evaluación: <%= @evaluacion.nombre_evaluacion %></h2>
+
+    <!-- Tabla de alumnos y calificaciones -->
+    <h3>Alumnos que rindieron esta evaluación</h3>
+    <table class="table-alumnos">
+      <thead>
+        <tr>
+          <th>Alumno</th>
+          <th>Calificación</th>
+          <th>Comentario</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% 5.times do |i| %> <!-- Simulamos 5 filas de alumnos -->
+          <tr>
+            <td>Alumno <%= i + 1 %></td>
+            <td>
+              <%= number_field_tag "calificacion[#{i}]", nil, min: 1, max: 7, class: 'input-calificacion' %>
+            </td>
+            <td>
+              <%= text_field_tag "comentario[#{i}]", nil, placeholder: 'Comentario...', class: 'input-comentario' %>
+            </td>
+            <td>
+              <button class="btn-calificar">Guardar</button>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>

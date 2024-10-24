@@ -150,3 +150,151 @@
     max-width: calc(100% - 250px); /* Restar el ancho del sidebar */
   }
   
+  /* Layout general con sidebar */
+.layout {
+    display: flex;
+    min-height: 100vh; /* Asegura que la página ocupe al menos el alto de la ventana */
+}
+
+/* Estilos para la sección de detalles de evaluación */
+.content-evaluaciones {
+    flex: 1;
+    padding: 30px;
+    background-color: #f5f4f0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* Título principal de la página */
+.content-evaluaciones h2 {
+    font-size: 2em;
+    color: #063971;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Detalles de la evaluación */
+.detalles-evaluacion p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Estilos para el texto de los detalles */
+.detalles-evaluacion p strong {
+    color: #063971;
+    font-weight: 600;
+}
+
+/* Botones para acciones de evaluaciones */
+.acciones-evaluacion {
+    margin-top: 30px;
+}
+
+.btn-evaluaciones {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #063971;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1em;
+    margin-right: 10px;
+}
+
+.btn-evaluaciones:hover {
+    background-color: #052e61;
+    transform: translateY(-3px);
+}
+
+
+/* Botón de eliminar en formularios */
+.btn-delete-evaluacion {
+    padding: 12px 30px;
+    background-color: #d9534f; /* Fondo rojo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  
+  .btn-delete-evaluacion:hover {
+    background-color: #c9302c;
+    transform: translateY(-3px);
+  }
+
+
+
+  /* Tabla de alumnos */
+.table-alumnos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table-alumnos th, .table-alumnos td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    font-size: 1em;
+  }
+  
+  .table-alumnos th {
+    background-color: #063971;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .table-alumnos td {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .table-alumnos tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table-alumnos tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Inputs en la tabla */
+  .input-calificacion {
+    width: 80px;
+    padding: 8px;
+    border: 2px solid #063971;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .input-comentario {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #063971;
+    border-radius: 5px;
+  }
+  
+  /* Botón de calificar */
+  .btn-calificar {
+    background-color: #063971;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-calificar:hover {
+    background-color: #052e61;
+  }
+  

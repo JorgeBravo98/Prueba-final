@@ -129,3 +129,20 @@ function openModal(cursoId) {
     document.getElementById("eliminarCursoModal").style.display = "none";
   }
   
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById('confirm-modal');
+    var openModalBtn = document.getElementById('open-modal');
+    var cancelBtn = document.getElementById('cancelar-eliminar');
+  
+    openModalBtn.addEventListener('click', function(event) {
+      event.preventDefault(); // Evita el envío del formulario
+      modal.style.display = 'block'; // Muestra el modal
+    });
+  
+    cancelBtn.addEventListener('click', function() {
+      modal.style.display = 'none'; // Oculta el modal
+    });
+  });
+  

@@ -1,24 +1,46 @@
-<h2>Editar Evaluación <%= @evaluacion.nombre_evaluacion %></h2>
+<div class="layout">
+  <%= render 'cursos/sidebar', curso: @curso %>
 
-<%= form_for([@curso, @evaluacion]) do |f| %>
-  <div>
-    <%= f.label :nombre_evaluacion %>
-    <%= f.text_field :nombre_evaluacion %>
+  <div class="content-evaluaciones">
+    <h2>Editar Evaluación <%= @evaluacion.nombre_evaluacion %></h2>
+
+    <div class="form-evaluacion">
+      <%= form_for([@curso, @evaluacion], url: curso_evaluacione_path(@curso, @evaluacion), method: :patch) do |f| %>
+        <div class="form-group">
+          <%= f.label :nombre_evaluacion, class: 'label' %>
+          <%= f.text_field :nombre_evaluacion, class: 'input-field' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :fecha_inicio, class: 'label' %>
+          <%= f.datetime_select :fecha_inicio, class: 'input-field' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :fecha_termino, class: 'label' %>
+          <%= f.datetime_select :fecha_termino, class: 'input-field' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit 'Guardar Cambios', class: 'btn-submit-evaluacion' %>
+        </div>
+      <% end %>
+
+      <!-- Botón para abrir el modal de confirmación de eliminación -->
+      <div class="form-group">
+        <button id="open-modal" class="btn-delete-evaluacion">Eliminar Evaluación</button>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div>
-    <%= f.label :fecha_inicio %>
-    <%= f.date_select :fecha_inicio %>
+<!-- Modal de confirmación -->
+<div id="confirm-modal" class="modal">
+  <div class="modal-content">
+    <p>¿Estás seguro de que deseas eliminar esta evaluación?</p>
+    <div class="modal-actions">
+      <button id="cancelar-eliminar" class="btn-cancelar">Cancelar</button>
+      <%= button_to 'Eliminar', curso_evaluacione_path(@curso, @evaluacion), method: :delete, class: 'btn-confirmar' %>
+    </div>
   </div>
-
-  <div>
-    <%= f.label :fecha_termino %>
-    <%= f.date_select :fecha_termino %>
-  </div>
-
-  <div>
-    <%= f.submit 'Actualizar Evaluación' %>
-  </div>
-<% end %>
-
-<%= link_to 'Volver a Evaluaciones', curso_evaluaciones_path(@curso) %>
+</div>

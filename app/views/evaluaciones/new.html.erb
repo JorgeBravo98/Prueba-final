@@ -3,7 +3,19 @@
 
   <div class="content-evaluaciones">
     <h1>Evaluaciones del curso <%= @curso.nombre %></h1>
-    <h2>Nueva Evaluación para <%= @curso.nombre %></h2>
+    <h2>Nueva evaluación para <%= @curso.nombre %></h2>
+    
+    <% if @evaluacion.errors.any? %>
+      <div class="alert alert-danger">
+        <h4><%= pluralize(@evaluacion.errors.count, "error") %> impidió crear la evaluación:</h4>
+        <ul>
+          <% @evaluacion.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
 
     <div class="form-evaluacion">
       <%= form_for([@curso, @evaluacion], url: curso_evaluaciones_path(@curso)) do |f| %>
@@ -14,12 +26,12 @@
 
         <div>
           <%= f.label :fecha_inicio, "Fecha de Inicio" %>
-          <%= f.date_select :fecha_inicio, class: "input" %>
+          <%= f.datetime_select :fecha_inicio, class: "input" %>
         </div>
 
         <div>
           <%= f.label :fecha_termino, "Fecha de Término" %>
-          <%= f.date_select :fecha_termino, class: "input" %>
+          <%= f.datetime_select :fecha_termino, class: "input" %>
         </div>
 
         <div>

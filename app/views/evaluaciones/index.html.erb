@@ -4,7 +4,7 @@
   <div class="content-evaluaciones">
     <h1>Evaluaciones del curso <%= @curso.nombre %></h1>
 
-    <h2>Evaluaciones de <%= @curso.profesor.nombre %></h2>
+    <h2>Evaluaciones de profesor: <%= @curso.profesor.nombre %></h2>
 
     <!-- Botón para agregar nueva evaluación -->
     <div class="btn-container">
@@ -30,10 +30,11 @@
             <td><%= evaluacion.fecha_termino %></td>
             <td><%= evaluacion.calificacion || 'No calificada' %></td>
             <td>
-              <%= link_to 'Ver', curso_evaluacion_path(@curso, evaluacion), class: 'btn-evaluaciones' %> |
-              <%= link_to 'Editar', edit_curso_evaluacion_path(@curso, evaluacion), class: 'btn-evaluaciones' %> |
-              <%= link_to 'Calificar', calificar_curso_evaluacion_path(@curso, evaluacion), method: :patch, class: 'btn-evaluaciones' %>
+              <%= link_to 'Ver', curso_evaluacione_path(@curso, evaluacion), class: 'btn-evaluaciones' %> |
+              <%= link_to 'Editar', edit_curso_evaluacione_path(@curso, evaluacion), class: 'btn-evaluaciones' %> |
+              <%= link_to 'Calificar', calificar_curso_evaluacione_path(@curso, evaluacion), method: :patch, class: 'btn-evaluaciones' %>
             </td>
+
           </tr>
         <% end %>
       </tbody>
