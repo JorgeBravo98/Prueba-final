@@ -1,0 +1,40 @@
+<div class="layout">
+  <%= render 'cursos/sidebar', curso: @curso %>
+
+  <div class="content-archivos">
+    <h1>Archivos del Curso <%= @curso.nombre %></h1>
+
+    <table class="table-archivos">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @archivos.each do |archivo| %>
+          <tr>
+            <td><%= archivo.nombre %></td>
+            <td>
+              <%= link_to 'Descargar', rails_blob_path(archivo.file, disposition: 'attachment'), class: 'btn-descargar' %>
+              <button class="btn-eliminar" data-archivo-id="<%= archivo.id %>" data-archivo-url="<%= curso_archivo_path(@curso, archivo) %>">Eliminar</button>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to 'Subir Nuevo Archivo', new_curso_archivo_path(@curso), class: 'btn-nuevo-archivo' %>
+  </div>
+</div>
+
+<!-- Modal de confirmación para eliminar archivo -->
+<div id="confirm-modal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <p>¿Estás seguro de que deseas eliminar este archivo?</p>
+    <div class="modal-actions">
+      <button id="cancelar-eliminar" class="btn-cancelar">Cancelar</button>
+      <%= button_to 'Eliminar', '', method: :delete, class: 'btn-confirmar', id: 'confirmar-eliminar' %>
+    </div>
+  </div>
+</div>

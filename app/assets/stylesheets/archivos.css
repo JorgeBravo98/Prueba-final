@@ -1,0 +1,212 @@
+/* Layout general con sidebar */
+.layout {
+    display: flex;
+    min-height: 100vh; /* Asegura que la página ocupe al menos el alto de la ventana */
+  }
+  
+  /* Estilos para la sección de archivos */
+  .content-archivos {
+    flex: 1;
+    padding: 30px;
+    background-color: #f5f4f0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    box-sizing: border-box;
+    margin-left: 250px; /* Añade este margen para dar espacio al sidebar */
+  }
+  
+  /* Título principal de la página de archivos */
+  .content-archivos h1 {
+    font-size: 2.5em;
+    color: #063971;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  /* Estilos para la tabla de archivos */
+  .table-archivos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table-archivos th,
+  .table-archivos td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    font-size: 1em;
+  }
+  
+  .table-archivos th {
+    background-color: #063971;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .table-archivos td {
+    background-color: #fff;
+    color: #333;
+    font-weight: 400;
+  }
+  
+  .table-archivos tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table-archivos tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Botón para descargar archivos */
+  .btn-descargar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #063971;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1em;
+  }
+  
+  .btn-descargar:hover {
+    background-color: #052e61;
+    transform: translateY(-3px);
+  }
+  
+  /* Botón para subir nuevo archivo */
+  .btn-nuevo-archivo {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #063971;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1em;
+    margin-top: 20px;
+  }
+  
+  .btn-nuevo-archivo:hover {
+    background-color: #052e61;
+    transform: translateY(-3px);
+  }
+  
+  /* Para asegurar que el contenido no colapse con la sidebar */
+  .content-archivos {
+    margin-left: 250px; /* Ancho del sidebar */
+    max-width: calc(100% - 250px); /* Restar el ancho del sidebar */
+  }
+
+  /* Layout general con sidebar */
+.layout {
+    display: flex;
+    min-height: 100vh; /* Asegura que la página ocupe al menos el alto de la ventana */
+  }
+  
+  /* Estilos para la sección de archivos */
+  .content-archivos {
+    flex: 1;
+    padding: 30px;
+    background-color: #f5f4f0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    box-sizing: border-box;
+    margin-left: 250px; /* Añade este margen para dar espacio al sidebar */
+  }
+  
+  /* Título principal de la página */
+  .content-archivos h1 {
+    font-size: 2.5em;
+    color: #063971;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  /* Formularios de archivo */
+  .form-archivo {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin-top: 20px;
+  }
+  
+  /* Estilo de los campos de formulario */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    font-weight: 600;
+    color: #063971;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #063971;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+  }
+  
+  .input-field:focus {
+    outline: none;
+    border-color: #052e61;
+    box-shadow: 0 0 5px rgba(6, 57, 113, 0.3);
+  }
+  
+  /* Botón de subir archivo */
+  .btn-submit-archivo {
+    padding: 12px 30px;
+    background-color: #063971;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-right: 10px; /* Añade espacio entre los botones */
+  }
+  
+  .btn-submit-archivo:hover {
+    background-color: #052e61;
+    transform: translateY(-3px);
+  }
+  
+  /* Botón de volver */
+  .btn-volver-archivo {
+    padding: 12px 30px;
+    background-color: #e0e0e0; /* Fondo gris */
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  
+  .btn-volver-archivo:hover {
+    background-color: #bdbdbd;
+    transform: translateY(-3px);
+  }
+  
+  /* Asegura que el contenido no colapse con el sidebar */
+  .content-archivos {
+    margin-left: 250px; /* Ancho del sidebar */
+    max-width: calc(100% - 250px); /* Restar el ancho del sidebar */
+  }
+  

@@ -1,6 +1,7 @@
 class Curso < ApplicationRecord
   belongs_to :profesor
   has_many :grupos, dependent: :destroy
+  has_many :archivos, dependent: :destroy
 
   validates :nombre, presence: true
   validates :sigla, presence: true, uniqueness: true

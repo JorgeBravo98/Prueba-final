@@ -1,0 +1,26 @@
+<div class="layout">
+  <%= render 'cursos/sidebar', curso: @curso %>
+
+  <div class="content-archivos">
+    <h1>Subir Nuevo Archivo</h1>
+
+    <div class="form-archivo">
+      <%= form_for([@curso, @archivo], html: { multipart: true }) do |f| %>
+        <div class="form-group">
+          <%= f.label :nombre, class: 'label' %>
+          <%= f.text_field :nombre, class: 'input-field' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :file, "Archivo", class: 'label' %>
+          <%= f.file_field :file, class: 'input-field' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit 'Subir Archivo', class: 'btn-submit-archivo' %>
+          <%= link_to 'Volver', curso_archivos_path(@curso), class: 'btn-volver-archivo' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

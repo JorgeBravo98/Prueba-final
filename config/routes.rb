@@ -45,12 +45,9 @@ Rails.application.routes.draw do
       get 'mis_cursos', to: 'cursos#mis_cursos', as: 'mis_cursos_profesor'
     end
 
-    # Anidamos evaluaciones dentro de cursos
-    resources :evaluaciones, only: [:index, :new, :create, :edit, :update, :destroy, :show] do
-      member do
-        patch 'calificar', to: 'evaluaciones#calificar', as: 'calificar_evaluacion'
-      end
-    end
+    
+
+    resources :archivos, only: [:index, :new, :create, :destroy]
 
     # Anidamos grupos dentro de cursos
     resources :grupos, only: [:index, :new, :create, :edit, :update, :destroy, :show]

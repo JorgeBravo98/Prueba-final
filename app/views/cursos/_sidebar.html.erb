@@ -3,7 +3,7 @@
     <li><%= link_to 'Página de Inicio', curso_path(@curso) %></li>
     <li><%= link_to 'Anuncios', '#' %></li>
     <li><%= link_to 'Personas', '#' %></li>
-    <li><%= link_to 'Archivos', '#' %></li>
+    <li><%= link_to 'Archivos', curso_archivos_path(@curso) %></li> <!-- Ruta correcta a archivos -->
     <li><%= link_to 'Grupos', curso_grupos_path(@curso) %></li> <!-- Enlace a grupos -->
     <li><%= link_to 'Evaluaciones', curso_evaluaciones_path(@curso) %></li>
   </ul>

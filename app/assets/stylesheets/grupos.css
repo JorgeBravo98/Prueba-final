@@ -2,7 +2,6 @@
 .curso-page {
     display: flex;
     min-height: 100vh;
-    background-color: #f9f9f9;
   }
   
   /* Barra lateral de navegación */
@@ -22,7 +21,7 @@
     margin-left: 270px; /* Deja espacio para el sidebar */
     padding: 40px;
     flex-grow: 1;
-    background-color: #ffffff;
+    background-color: #f4f5f0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     min-height: 100vh; /* Asegura que ocupe toda la pantalla */
   }
