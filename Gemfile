@@ -90,4 +90,4 @@ gem "devise", "~> 4.9"
 # gema cloudinary
 gem 'cloudinary'
 gem 'activestorage-cloudinary-service'
-
+gem 'simplecov', require: false, group: :test
