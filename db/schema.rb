@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_25_163849) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_25_183500) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -34,9 +34,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_25_163849) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+    t.index ["blob_id"], name: "index_active_storage_variant_records_on_blob_id"
   end
 
   create_table "administradores", force: :cascade do |t|
@@ -51,30 +52,32 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_25_163849) do
 
   create_table "alumnos", force: :cascade do |t|
     t.integer "numero_alumno"
-    t.string "email"
+    t.string "email", default: "", null: false
     t.string "nombre"
     t.string "apellido"
     t.string "nombre_usuario"
     t.string "avatar"
-    t.string "contraseña"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "encrypted_password"
     t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_alumnos_on_email", unique: true
   end
 
   create_table "alumnos_grupos", id: false, force: :cascade do |t|
     t.integer "grupo_id", null: false
     t.integer "alumno_id", null: false
+    t.index ["alumno_id", "grupo_id"], name: "index_alumnos_grupos_on_alumno_id_and_grupo_id"
+    t.index ["grupo_id", "alumno_id"], name: "index_alumnos_grupos_on_grupo_id_and_alumno_id"
   end
 
   create_table "anuncios", force: :cascade do |t|
     t.integer "curso_id", null: false
     t.integer "profesor_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "titulo"
     t.text "contenido"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["curso_id"], name: "index_anuncios_on_curso_id"
     t.index ["profesor_id"], name: "index_anuncios_on_profesor_id"
   end
@@ -90,10 +93,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_25_163849) do
   create_table "cursos", force: :cascade do |t|
     t.string "nombre"
     t.string "sigla"
+    t.string "descripcion"
     t.integer "profesor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "descripcion"
     t.index ["profesor_id"], name: "index_cursos_on_profesor_id"
   end
 
@@ -155,15 +158,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_25_163849) do
     t.string "apellido"
     t.string "nombre_usuario"
     t.string "avatar"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "lista_cursos"
-    t.datetime "remember_created_at"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.string "email"
-    t.string "encrypted_password"
-    t.index ["reset_password_token"], name: "index_profesores_on_reset_password_token"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_profesores_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_profesores_on_reset_password_token", unique: true
   end
 
   create_table "profesors", force: :cascade do |t|
@@ -192,12 +195,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_25_163849) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "anuncios", "cursos", on_delete: :cascade
-  add_foreign_key "anuncios", "cursos", on_delete: :cascade
-  add_foreign_key "anuncios", "profesores", column: "profesor_id", on_delete: :cascade
-  add_foreign_key "anuncios", "profesores", column: "profesor_id", on_delete: :cascade
+  add_foreign_key "anuncios", "cursos"
+  add_foreign_key "anuncios", "profesores", column: "profesor_id"
   add_foreign_key "archivos", "cursos"
-  add_foreign_key "cursos", "profesores", column: "profesor_id"
   add_foreign_key "cursos", "profesores", column: "profesor_id"
   add_foreign_key "evaluaciones", "alumnos"
   add_foreign_key "evaluaciones", "cursos"
