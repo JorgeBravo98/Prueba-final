@@ -1,0 +1,28 @@
+<div class="layout">
+  <!-- Renderizamos el sidebar -->
+  <%= render 'cursos/sidebar' %>
+
+  <div class="main-content">
+    <h1>Nuevo Anuncio para <%= @curso.nombre %></h1>
+
+    <div class="form-container2">
+      <%= form_for([@curso, @anuncio]) do |f| %>
+        <div class="form-group2">
+          <%= f.label :titulo, "Título del Anuncio", class: 'form-label' %>
+          <%= f.text_field :titulo, class: 'input-field' %>
+        </div>
+
+        <div class="form-group2">
+          <%= f.label :contenido, "Contenido del Anuncio", class: 'form-label' %>
+          <%= f.text_area :contenido, class: 'input-field text-area' %>
+        </div>
+
+        <!-- Agrupar ambos botones en un mismo div -->
+        <div class="form-group2 form-actions">
+          <%= f.submit 'Publicar Anuncio', class: 'btn-submit' %>
+          <%= link_to 'Volver', curso_anuncios_path(@curso), class: 'btn-volver' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -174,3 +174,32 @@ function openModal(cursoId) {
     });
   });
   
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.btn-eliminar').forEach(function (eliminarBtn) {
+      eliminarBtn.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevenir la acción predeterminada
+        event.stopPropagation(); // Detener la propagación del evento de clic
+  
+        // Confirmación de eliminación
+        if (confirm('¿Estás seguro de que deseas eliminar este anuncio?')) {
+          fetch(this.href, {
+            method: 'DELETE',
+            headers: {
+              'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+          }).then(response => {
+            if (response.ok) {
+              // Remover el anuncio del DOM si la eliminación es exitosa
+              this.closest('li.anuncio-item').remove();
+            } else {
+              alert('Hubo un error al eliminar el anuncio. Por favor intenta nuevamente.');
+            }
+          }).catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un error al eliminar el anuncio. Por favor intenta nuevamente.');
+          });
+        }
+      });
+    });
+  });
+  

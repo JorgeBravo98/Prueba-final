@@ -1,5 +1,18 @@
 <%= render 'sidebar' %> <!-- Incluir la barra lateral -->
-<div class="detalles-curso">
-  <h1><%= @curso.nombre %> - <%= @curso.sigla %></h1>
-  <p><strong>Descripción:</strong> <%= @curso.descripcion %></p>
+
+<div class="curso-detalles">
+  <div class="header-curso">
+    <h1><%= @curso.nombre %> - <%= @curso.sigla %></h1>
+  </div>
+
+  <div class="descripcion-curso">
+    <h2>Descripción del Curso</h2>
+    <p><%= @curso.descripcion %></p>
+  </div>
+
+  <div class="acciones-curso">
+    <%= link_to 'Ver Anuncios', curso_anuncios_path(@curso), class: 'btn-accion' %>
+    <%= link_to 'Ver Grupos', curso_grupos_path(@curso), class: 'btn-accion' %></li> <!-- Enlace a grupos -->
+    <%= link_to 'Crear Evaluación', curso_evaluaciones_path(@curso), class: 'btn-accion' %>
+  </div>
 </div>

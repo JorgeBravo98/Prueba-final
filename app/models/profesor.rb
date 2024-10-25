@@ -3,6 +3,9 @@ class Profesor < ApplicationRecord
   has_many :cursos, dependent: :destroy
   # Tiene un avatar
   has_one_attached :avatar
+
+  has_many :anuncios
+
   
   # Establece el nombre de la tabla a 'profesores' si no lo hace automáticamente
   self.table_name = 'profesores'

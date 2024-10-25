@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_24_192956) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_25_163849) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -73,6 +73,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_24_192956) do
     t.integer "profesor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "titulo"
+    t.text "contenido"
     t.index ["curso_id"], name: "index_anuncios_on_curso_id"
     t.index ["profesor_id"], name: "index_anuncios_on_profesor_id"
   end
@@ -190,8 +192,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_24_192956) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "anuncios", "cursos"
-  add_foreign_key "anuncios", "profesors"
+  add_foreign_key "anuncios", "cursos", on_delete: :cascade
+  add_foreign_key "anuncios", "cursos", on_delete: :cascade
+  add_foreign_key "anuncios", "profesores", column: "profesor_id", on_delete: :cascade
+  add_foreign_key "anuncios", "profesores", column: "profesor_id", on_delete: :cascade
   add_foreign_key "archivos", "cursos"
   add_foreign_key "cursos", "profesores", column: "profesor_id"
   add_foreign_key "cursos", "profesores", column: "profesor_id"

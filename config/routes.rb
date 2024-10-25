@@ -59,7 +59,10 @@ Rails.application.routes.draw do
         patch 'calificar', to: 'evaluaciones#calificar', as: 'calificar'
       end
     end
+    resources :anuncios, only: [:index, :new, :create, :show, :destroy]
   end
+
+  
   
 
   # Rutas para manejo de errores

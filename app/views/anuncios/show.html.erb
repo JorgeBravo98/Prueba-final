@@ -1,0 +1,24 @@
+<div class="layout">
+  <!-- Renderizamos el sidebar -->
+  <%= render 'cursos/sidebar' %>
+
+  <div class="main-content">
+    <div class="anuncio-detalle">
+      <!-- Avatar del profesor -->
+      <div class="avatar-wrapper">
+        <div class="avatar-container">
+          <%= image_tag(@anuncio.profesor.avatar.present? ? @anuncio.profesor.avatar.url : 'default-avatar.png', class: 'avatar-img') %>
+        </div>
+      </div>
+      <!-- Información del anuncio -->
+      <div class="anuncio-info">
+        <h1><%= @anuncio.titulo %></h1>
+        <p class="contenido-completo"><%= @anuncio.contenido %></p>
+        <p class="fecha-publicacion"><em>Publicado el: <%= @anuncio.created_at.strftime("%d %b %Y, %H:%M") %></em></p>
+      </div>
+    </div>
+
+    <!-- Botón para regresar a la lista de anuncios -->
+    <%= link_to 'Volver a los anuncios', curso_anuncios_path(@curso), class: 'btn-volver' %>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="layout">
+  <!-- Renderizamos el sidebar -->
+  <%= render 'cursos/sidebar' %>
+
+  <div class="main-content">
+    <h1>Anuncios del curso <%= @curso.nombre %></h1>
+
+    <%= link_to 'Crear Nuevo Anuncio', new_curso_anuncio_path(@curso), class: 'btn-nuevo-anuncio' %>
+
+    <ul class="lista-anuncios">
+      <% @anuncios.each do |anuncio| %>
+        <li class="anuncio-item" onclick="window.location.href='<%= curso_anuncio_path(@curso, anuncio) %>'">
+          <!-- Avatar -->
+          <div class="avatar-wrapper">
+            <div class="avatar-container">
+              <%= image_tag(anuncio.profesor.avatar.present? ? anuncio.profesor.avatar.url : 'default-avatar.png', class: 'avatar-img') %>
+            </div>
+          </div>
+          <!-- Información del anuncio -->
+          <div class="anuncio-info">
+            <h2><%= anuncio.titulo %></h2>
+            <p class="contenido-preview"><%= anuncio.contenido.truncate(100) %></p>
+            <p class="fecha-publicacion"><em>Publicado el: <%= anuncio.created_at.strftime("%d %b %Y, %H:%M") %></em></p>
+          </div>
+          <!-- Botón de eliminar con stopPropagation -->
+          <div class="anuncio-eliminar">
+            <%= link_to 'Eliminar', curso_anuncio_path(@curso, anuncio), method: :delete, class: 'btn-eliminar', onclick: "event.stopPropagation()" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  
+
